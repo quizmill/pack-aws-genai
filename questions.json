@@ -1,0 +1,1920 @@
+[
+  {
+    "id": "aws-genai-fm-001",
+    "categoryKey": "fm-data",
+    "difficulty": 2,
+    "tags": [
+      "rag",
+      "fine-tuning"
+    ],
+    "prompt": "A support assistant must answer from a product catalog that changes several times a day. Which customization approach keeps answers current with the least operational overhead?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Retrieval-Augmented Generation (RAG) over the catalog"
+      },
+      {
+        "key": "B",
+        "text": "Fine-tune the foundation model nightly on the latest catalog"
+      },
+      {
+        "key": "C",
+        "text": "Continued pre-training on the catalog corpus"
+      },
+      {
+        "key": "D",
+        "text": "Bake the catalog into the system prompt and redeploy on each change"
+      }
+    ],
+    "correctKey": "A",
+    "explanation": "RAG retrieves the latest documents at query time, so frequently changing knowledge stays current by re-indexing — no model retraining. Fine-tuning and continued pre-training change model weights and are too slow/expensive for data that changes daily; stuffing a whole catalog into the prompt does not scale and hits context limits.",
+    "source": "generated",
+    "sourceRef": "https://docs.aws.amazon.com/aws-certification/latest/examguides/ai-professional-01.html",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-fm-002",
+    "categoryKey": "fm-data",
+    "difficulty": 3,
+    "tags": [
+      "knowledge-bases",
+      "vector-store"
+    ],
+    "prompt": "When you create an Amazon Bedrock Knowledge Base without specifying a vector store, which store does Bedrock provision by default?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Amazon Aurora PostgreSQL with pgvector"
+      },
+      {
+        "key": "B",
+        "text": "Amazon OpenSearch Serverless"
+      },
+      {
+        "key": "C",
+        "text": "Amazon Neptune"
+      },
+      {
+        "key": "D",
+        "text": "Amazon DynamoDB"
+      }
+    ],
+    "correctKey": "B",
+    "explanation": "If you do not bring your own vector store, Bedrock Knowledge Bases creates an Amazon OpenSearch Serverless vector collection for you. Aurora PostgreSQL with pgvector, Pinecone, Redis Enterprise, and MongoDB Atlas are supported as bring-your-own options. Neptune (graph) and DynamoDB (key-value) are not vector stores for Knowledge Bases.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-fm-003",
+    "categoryKey": "fm-data",
+    "difficulty": 3,
+    "tags": [
+      "continued-pre-training",
+      "customization"
+    ],
+    "prompt": "Continued pre-training of a Bedrock foundation model is best suited to which kind of training data?",
+    "options": [
+      {
+        "key": "A",
+        "text": "A small set of labeled prompt/completion pairs"
+      },
+      {
+        "key": "B",
+        "text": "Human preference rankings between responses"
+      },
+      {
+        "key": "C",
+        "text": "A large volume of unlabeled domain text"
+      },
+      {
+        "key": "D",
+        "text": "A vector index of document embeddings"
+      }
+    ],
+    "correctKey": "C",
+    "explanation": "Continued (or 'continued') pre-training feeds large amounts of unlabeled domain text to teach the model domain vocabulary and patterns. Labeled prompt/completion pairs are used for fine-tuning; preference rankings are for RLHF-style alignment; an embedding index supports RAG, not weight updates.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-fm-004",
+    "categoryKey": "fm-data",
+    "difficulty": 4,
+    "tags": [
+      "chunking",
+      "knowledge-bases"
+    ],
+    "prompt": "You ingest long structured manuals with nested sections into a Knowledge Base and want retrieval to return small, precise chunks while still passing broader parent context to the model. Which chunking strategy fits best?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Fixed-size chunking with no overlap"
+      },
+      {
+        "key": "B",
+        "text": "No chunking (one chunk per file)"
+      },
+      {
+        "key": "C",
+        "text": "Semantic chunking by embedding similarity only"
+      },
+      {
+        "key": "D",
+        "text": "Hierarchical chunking"
+      }
+    ],
+    "correctKey": "D",
+    "explanation": "Hierarchical chunking indexes small child chunks for precise matching but returns their larger parent chunk for context, which suits nested manuals. Fixed-size ignores structure; one-chunk-per-file is too coarse and risks context overflow; semantic chunking groups by meaning but does not provide the parent/child context expansion.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-fm-005",
+    "categoryKey": "fm-data",
+    "difficulty": 2,
+    "tags": [
+      "embeddings"
+    ],
+    "prompt": "Which of the following is an embeddings model available on Amazon Bedrock for converting text into vectors?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Amazon Titan Text Embeddings"
+      },
+      {
+        "key": "B",
+        "text": "Anthropic Claude 3 Sonnet"
+      },
+      {
+        "key": "C",
+        "text": "Meta Llama 3 70B"
+      },
+      {
+        "key": "D",
+        "text": "Stability AI SDXL"
+      }
+    ],
+    "correctKey": "A",
+    "explanation": "Amazon Titan Text Embeddings (and Cohere Embed) produce vector embeddings for semantic search and RAG. Claude and Llama are text-generation models, and Stable Diffusion XL is an image-generation model — none of those return embedding vectors.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-fm-006",
+    "categoryKey": "fm-data",
+    "difficulty": 3,
+    "tags": [
+      "fine-tuning",
+      "provisioned-throughput"
+    ],
+    "prompt": "After fine-tuning a model in Amazon Bedrock, what is required before you can run inference against the resulting custom model?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Nothing — custom models are immediately available on-demand"
+      },
+      {
+        "key": "B",
+        "text": "Purchase Provisioned Throughput for the custom model"
+      },
+      {
+        "key": "C",
+        "text": "Re-upload the training data each time you invoke it"
+      },
+      {
+        "key": "D",
+        "text": "Convert the model to ONNX and host it on SageMaker"
+      }
+    ],
+    "correctKey": "B",
+    "explanation": "Custom (fine-tuned or continued-pre-trained) Bedrock models are not served on-demand; you must buy Provisioned Throughput (model units) to host and invoke them. They do not require re-uploading data, and Bedrock serves them directly without exporting to SageMaker/ONNX.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-fm-007",
+    "categoryKey": "fm-data",
+    "difficulty": 2,
+    "tags": [
+      "prompt-engineering"
+    ],
+    "prompt": "Including two or three worked input/output examples in the prompt before the real request is an example of which technique?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Zero-shot prompting"
+      },
+      {
+        "key": "B",
+        "text": "Retrieval-augmented generation"
+      },
+      {
+        "key": "C",
+        "text": "Few-shot prompting"
+      },
+      {
+        "key": "D",
+        "text": "Fine-tuning"
+      }
+    ],
+    "correctKey": "C",
+    "explanation": "Few-shot prompting supplies a handful of examples in-context so the model infers the desired pattern. Zero-shot gives no examples; RAG injects retrieved documents rather than examples; fine-tuning changes weights via training rather than the prompt.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-fm-008",
+    "categoryKey": "fm-data",
+    "difficulty": 3,
+    "tags": [
+      "fine-tuning",
+      "rag",
+      "selection"
+    ],
+    "prompt": "A bank wants its assistant to consistently respond in a fixed JSON structure with a specific compliance tone, regardless of the question. Which approach most directly addresses this?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Add more documents to the RAG knowledge base"
+      },
+      {
+        "key": "B",
+        "text": "Increase the retrieval top-k value"
+      },
+      {
+        "key": "C",
+        "text": "Switch the vector store to pgvector"
+      },
+      {
+        "key": "D",
+        "text": "Fine-tune the model on examples of the desired format and tone"
+      }
+    ],
+    "correctKey": "D",
+    "explanation": "Fine-tuning teaches a model to reliably produce a particular style, format, or behavior by training on examples of it. RAG and retrieval tuning change what knowledge is available, not how the model formats or styles output; the vector store choice is irrelevant to tone/format.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-fm-009",
+    "categoryKey": "fm-data",
+    "difficulty": 3,
+    "tags": [
+      "knowledge-bases",
+      "data-sources"
+    ],
+    "prompt": "Besides Amazon S3, which is a supported native data source connector for an Amazon Bedrock Knowledge Base?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Confluence"
+      },
+      {
+        "key": "B",
+        "text": "Amazon Redshift tables"
+      },
+      {
+        "key": "C",
+        "text": "Amazon SQS queues"
+      },
+      {
+        "key": "D",
+        "text": "AWS CloudFormation stacks"
+      }
+    ],
+    "correctKey": "A",
+    "explanation": "Knowledge Bases can connect to S3 plus a web crawler, Confluence, Salesforce, and Microsoft SharePoint. Redshift, SQS, and CloudFormation are not document data-source connectors for RAG ingestion.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-fm-010",
+    "categoryKey": "fm-data",
+    "difficulty": 2,
+    "tags": [
+      "rag",
+      "hallucination"
+    ],
+    "prompt": "How does Retrieval-Augmented Generation primarily reduce hallucinations compared to a base model answering on its own?",
+    "options": [
+      {
+        "key": "A",
+        "text": "It lowers the model temperature automatically"
+      },
+      {
+        "key": "B",
+        "text": "It grounds the response in retrieved source passages provided in the prompt"
+      },
+      {
+        "key": "C",
+        "text": "It increases the model's parameter count at inference time"
+      },
+      {
+        "key": "D",
+        "text": "It disables the model's ability to generate novel text"
+      }
+    ],
+    "correctKey": "B",
+    "explanation": "RAG supplies relevant retrieved passages as context, so the model can ground its answer in real source material instead of relying solely on parametric memory. It does not change temperature, model size, or the model's generative capability.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-fm-011",
+    "categoryKey": "fm-data",
+    "difficulty": 4,
+    "tags": [
+      "customization",
+      "selection"
+    ],
+    "prompt": "A team has a large unlabeled corpus of legal documents and wants the model to internalize legal terminology and writing patterns before any task-specific tuning. Which customization should they apply first?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Fine-tuning on labeled Q&A pairs"
+      },
+      {
+        "key": "B",
+        "text": "RAG with the legal corpus indexed"
+      },
+      {
+        "key": "C",
+        "text": "Continued pre-training on the legal corpus"
+      },
+      {
+        "key": "D",
+        "text": "Prompt caching of the legal corpus"
+      }
+    ],
+    "correctKey": "C",
+    "explanation": "Continued pre-training on a large unlabeled domain corpus is the right tool for absorbing domain vocabulary and style. Fine-tuning needs labeled pairs and targets task behavior; RAG provides facts at query time but does not adapt the model's language; prompt caching only reduces cost/latency for repeated context.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-fm-012",
+    "categoryKey": "fm-data",
+    "difficulty": 3,
+    "tags": [
+      "compliance",
+      "data-privacy"
+    ],
+    "prompt": "Which statement about data handling in Amazon Bedrock is correct and relevant to a compliance review?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Prompts and completions are used by AWS to train the base foundation models"
+      },
+      {
+        "key": "B",
+        "text": "All Bedrock traffic is routed through the public internet by design"
+      },
+      {
+        "key": "C",
+        "text": "Custom models you fine-tune are shared with the model provider"
+      },
+      {
+        "key": "D",
+        "text": "Your inputs and customization data are not used to train the base foundation models and stay in your AWS Region"
+      }
+    ],
+    "correctKey": "D",
+    "explanation": "Bedrock does not use customer prompts, completions, or customization data to train the base models, and that data remains within your Region. Bedrock can be reached privately via VPC endpoints, and a fine-tuned custom model is private to your account — it is not shared with the provider.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-fm-013",
+    "categoryKey": "fm-data",
+    "difficulty": 4,
+    "tags": [
+      "vector-store",
+      "scale"
+    ],
+    "prompt": "A team already runs Amazon Aurora PostgreSQL and wants their RAG vector store to live alongside relational data with transactional consistency and no new serverless service to manage. Which Knowledge Base vector store best fits?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Aurora PostgreSQL with the pgvector extension"
+      },
+      {
+        "key": "B",
+        "text": "Amazon OpenSearch Serverless"
+      },
+      {
+        "key": "C",
+        "text": "Pinecone"
+      },
+      {
+        "key": "D",
+        "text": "Amazon Kendra"
+      }
+    ],
+    "correctKey": "A",
+    "explanation": "Aurora PostgreSQL with pgvector lets the team keep vectors next to existing relational data with familiar SQL and transactional guarantees. OpenSearch Serverless and Pinecone are separate vector services; Kendra is an intelligent search service, not a Knowledge Base vector store.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-fm-014",
+    "categoryKey": "fm-data",
+    "difficulty": 2,
+    "tags": [
+      "bedrock",
+      "providers"
+    ],
+    "prompt": "Amazon Bedrock provides access to foundation models from multiple providers through a single API. Which model family is offered by Amazon itself on Bedrock?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Google Gemini"
+      },
+      {
+        "key": "B",
+        "text": "Amazon Nova"
+      },
+      {
+        "key": "C",
+        "text": "OpenAI GPT-4"
+      },
+      {
+        "key": "D",
+        "text": "Microsoft Phi"
+      }
+    ],
+    "correctKey": "B",
+    "explanation": "Amazon's own Nova (and Titan) models are first-party on Bedrock, alongside third-party providers such as Anthropic, Meta, Mistral, AI21, Cohere, and Stability AI. Google Gemini and OpenAI GPT-4 are not offered through Bedrock.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-fm-015",
+    "categoryKey": "fm-data",
+    "difficulty": 3,
+    "tags": [
+      "prompt-engineering",
+      "reasoning"
+    ],
+    "prompt": "Adding 'Let's think step by step' or asking the model to show its reasoning before the final answer is an application of which prompting technique?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Negative prompting"
+      },
+      {
+        "key": "B",
+        "text": "Token masking"
+      },
+      {
+        "key": "C",
+        "text": "Chain-of-thought prompting"
+      },
+      {
+        "key": "D",
+        "text": "Speculative decoding"
+      }
+    ],
+    "correctKey": "C",
+    "explanation": "Chain-of-thought prompting elicits intermediate reasoning steps, which improves multi-step and arithmetic tasks. Negative prompting steers away from content (common in image models), token masking is a training objective, and speculative decoding is a latency optimization — none describe eliciting reasoning steps.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-fm-016",
+    "categoryKey": "fm-data",
+    "difficulty": 4,
+    "tags": [
+      "fine-tuning",
+      "data-format"
+    ],
+    "prompt": "You are preparing a fine-tuning dataset for Amazon Bedrock. What format and storage are expected for the training data?",
+    "options": [
+      {
+        "key": "A",
+        "text": "A CSV file attached directly to the API request"
+      },
+      {
+        "key": "B",
+        "text": "A live DynamoDB stream of examples"
+      },
+      {
+        "key": "C",
+        "text": "Parquet files in Amazon Redshift"
+      },
+      {
+        "key": "D",
+        "text": "JSONL records with prompt/completion fields stored in Amazon S3"
+      }
+    ],
+    "correctKey": "D",
+    "explanation": "Bedrock fine-tuning jobs read JSONL training (and optional validation) datasets from Amazon S3, where each line is a record with the expected prompt/completion structure for the model. CSV-in-request, DynamoDB streams, and Redshift Parquet are not how Bedrock ingests fine-tuning data.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-fm-017",
+    "categoryKey": "fm-data",
+    "difficulty": 3,
+    "tags": [
+      "knowledge-bases",
+      "api"
+    ],
+    "prompt": "Your application already has its own prompt template and just needs the most relevant passages from a Knowledge Base to insert. Which Knowledge Base API should you call?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Retrieve"
+      },
+      {
+        "key": "B",
+        "text": "RetrieveAndGenerate"
+      },
+      {
+        "key": "C",
+        "text": "InvokeModel"
+      },
+      {
+        "key": "D",
+        "text": "StartIngestionJob"
+      }
+    ],
+    "correctKey": "A",
+    "explanation": "Retrieve returns the matching chunks so your application can build its own prompt and call any model. RetrieveAndGenerate does retrieval and generation in one managed call; InvokeModel just runs a model with no retrieval; StartIngestionJob syncs the data source into the index.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-fm-018",
+    "categoryKey": "fm-data",
+    "difficulty": 4,
+    "tags": [
+      "retrieval",
+      "reranking"
+    ],
+    "prompt": "Retrieval returns many superficially similar chunks and the most relevant ones are not consistently at the top. Which technique most directly improves the ordering of retrieved results?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Lower the model's temperature"
+      },
+      {
+        "key": "B",
+        "text": "Apply a reranking model to the retrieved candidates"
+      },
+      {
+        "key": "C",
+        "text": "Increase Provisioned Throughput"
+      },
+      {
+        "key": "D",
+        "text": "Switch from JSON to XML output"
+      }
+    ],
+    "correctKey": "B",
+    "explanation": "A reranker re-scores the top candidate chunks for query relevance, pushing the best passages to the top before generation. Temperature affects generation randomness, Provisioned Throughput affects capacity, and output format is unrelated to retrieval ordering.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-fm-019",
+    "categoryKey": "fm-data",
+    "difficulty": 3,
+    "tags": [
+      "embeddings",
+      "cost"
+    ],
+    "prompt": "Amazon Titan Text Embeddings V2 lets you choose a smaller output dimension (e.g., 256 instead of 1024). What is the main trade-off of selecting a smaller dimension?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Higher storage and lower retrieval quality"
+      },
+      {
+        "key": "B",
+        "text": "No effect on either storage or accuracy"
+      },
+      {
+        "key": "C",
+        "text": "Lower storage and potentially reduced retrieval accuracy"
+      },
+      {
+        "key": "D",
+        "text": "It disables semantic search entirely"
+      }
+    ],
+    "correctKey": "C",
+    "explanation": "Smaller embedding dimensions shrink vector storage and speed up similarity search but can lose some semantic fidelity, slightly reducing retrieval accuracy. They never increase storage, and semantic search still works — it is a cost/accuracy trade-off.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-impl-001",
+    "categoryKey": "implementation",
+    "difficulty": 2,
+    "tags": [
+      "converse-api"
+    ],
+    "prompt": "Why would a developer choose the Amazon Bedrock Converse API over per-model InvokeModel calls?",
+    "options": [
+      {
+        "key": "A",
+        "text": "It is the only API that supports image generation"
+      },
+      {
+        "key": "B",
+        "text": "It eliminates the need for IAM permissions"
+      },
+      {
+        "key": "C",
+        "text": "It runs models for free under the AWS Free Tier indefinitely"
+      },
+      {
+        "key": "D",
+        "text": "It provides a single, consistent request/response schema across different models"
+      }
+    ],
+    "correctKey": "D",
+    "explanation": "The Converse API offers a unified message-based schema (system prompts, multi-turn messages, tool use) that works the same across supported models, so you can swap models without rewriting request bodies. InvokeModel requires model-specific payloads. Converse still needs IAM permissions and is not free, and it is not an image-generation API.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-impl-002",
+    "categoryKey": "implementation",
+    "difficulty": 3,
+    "tags": [
+      "streaming"
+    ],
+    "prompt": "You want to stream tokens to a UI as they are generated using the unified messages API. Which operation do you call?",
+    "options": [
+      {
+        "key": "A",
+        "text": "ConverseStream"
+      },
+      {
+        "key": "B",
+        "text": "Converse"
+      },
+      {
+        "key": "C",
+        "text": "RetrieveAndGenerate"
+      },
+      {
+        "key": "D",
+        "text": "CreateModelInvocationJob"
+      }
+    ],
+    "correctKey": "A",
+    "explanation": "ConverseStream returns a streamed response of incremental output for the Converse messages API (the InvokeModel equivalent is InvokeModelWithResponseStream). Plain Converse returns the full response at once; RetrieveAndGenerate is for RAG; CreateModelInvocationJob runs asynchronous batch inference.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-impl-003",
+    "categoryKey": "implementation",
+    "difficulty": 3,
+    "tags": [
+      "agents",
+      "action-groups"
+    ],
+    "prompt": "In Amazon Bedrock Agents, an action group is typically backed by which service to execute the business logic of an action?",
+    "options": [
+      {
+        "key": "A",
+        "text": "An Amazon EC2 spot fleet"
+      },
+      {
+        "key": "B",
+        "text": "An AWS Lambda function"
+      },
+      {
+        "key": "C",
+        "text": "An Amazon SNS topic"
+      },
+      {
+        "key": "D",
+        "text": "An AWS Glue job"
+      }
+    ],
+    "correctKey": "B",
+    "explanation": "An action group maps API operations to an AWS Lambda function that the agent invokes to perform the action (or you can use Return of Control to handle it in your app). SNS, EC2 spot fleets, and Glue jobs are not the execution target for agent action groups.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-impl-004",
+    "categoryKey": "implementation",
+    "difficulty": 4,
+    "tags": [
+      "agents",
+      "return-of-control"
+    ],
+    "prompt": "An agent needs to call an internal API that runs inside a private network the agent's Lambda cannot reach. You enable Return of Control. What does Return of Control do?",
+    "options": [
+      {
+        "key": "A",
+        "text": "It blocks the agent from using any tools"
+      },
+      {
+        "key": "B",
+        "text": "It automatically retries the Lambda with elevated permissions"
+      },
+      {
+        "key": "C",
+        "text": "It returns the predicted action and parameters to your application to execute, instead of invoking a Lambda"
+      },
+      {
+        "key": "D",
+        "text": "It forces the agent to answer only from the knowledge base"
+      }
+    ],
+    "correctKey": "C",
+    "explanation": "Return of Control hands the chosen action and its parameters back to your application so your own code executes it and returns the result to the agent — useful when execution must happen in your environment rather than a Bedrock-invoked Lambda. It does not disable tools, change permissions, or restrict the agent to the knowledge base.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-impl-005",
+    "categoryKey": "implementation",
+    "difficulty": 3,
+    "tags": [
+      "tool-use",
+      "converse-api"
+    ],
+    "prompt": "Using the Converse API, how do you let a model decide to call your function (tool) and return structured arguments for it?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Set temperature to 0 so the model emits valid JSON"
+      },
+      {
+        "key": "B",
+        "text": "Enable Provisioned Throughput on the model"
+      },
+      {
+        "key": "C",
+        "text": "Attach the tool as a Lambda layer to Bedrock"
+      },
+      {
+        "key": "D",
+        "text": "Pass a toolConfig describing the tools, then handle the returned tool-use request"
+      }
+    ],
+    "correctKey": "D",
+    "explanation": "Tool use (function calling) is configured by supplying a toolConfig with each tool's name, description, and input schema; the model returns a toolUse block with arguments, which your app executes and feeds back. Temperature alone does not give reliable structured tool calls, and tools are not attached as Lambda layers to Bedrock.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-impl-006",
+    "categoryKey": "implementation",
+    "difficulty": 3,
+    "tags": [
+      "agents",
+      "reasoning"
+    ],
+    "prompt": "Amazon Bedrock Agents break a user request into steps, decide which action or knowledge base to use, observe results, and iterate. This orchestration pattern is based on which approach?",
+    "options": [
+      {
+        "key": "A",
+        "text": "ReAct-style reasoning and acting loops"
+      },
+      {
+        "key": "B",
+        "text": "Round-robin load balancing"
+      },
+      {
+        "key": "C",
+        "text": "Blue/green deployment"
+      },
+      {
+        "key": "D",
+        "text": "MapReduce batch processing"
+      }
+    ],
+    "correctKey": "A",
+    "explanation": "Bedrock Agents use a ReAct-style loop, interleaving reasoning with actions (tool/knowledge-base calls) and observing results until they can answer. Round-robin, blue/green, and MapReduce are infrastructure/deployment patterns unrelated to agent reasoning.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-impl-007",
+    "categoryKey": "implementation",
+    "difficulty": 3,
+    "tags": [
+      "agents",
+      "action-groups",
+      "schema"
+    ],
+    "prompt": "When defining an action group's API contract for a Bedrock Agent, which format describes the available operations and their parameters?",
+    "options": [
+      {
+        "key": "A",
+        "text": "A Dockerfile"
+      },
+      {
+        "key": "B",
+        "text": "An OpenAPI schema (or a function-details definition)"
+      },
+      {
+        "key": "C",
+        "text": "A Terraform module"
+      },
+      {
+        "key": "D",
+        "text": "An Avro schema"
+      }
+    ],
+    "correctKey": "B",
+    "explanation": "Action groups are described with an OpenAPI schema (or the simpler function-details format) so the agent knows the operations, parameters, and descriptions it can call. Dockerfiles, Terraform, and Avro are unrelated to declaring agent action interfaces.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-impl-008",
+    "categoryKey": "implementation",
+    "difficulty": 4,
+    "tags": [
+      "agentcore",
+      "orchestration"
+    ],
+    "prompt": "A team has built a custom agent using an open-source framework and needs a managed runtime that provides session isolation, memory, identity, and observability to run it in production on AWS. Which option fits best?",
+    "options": [
+      {
+        "key": "A",
+        "text": "A single AWS Lambda function with a 15-minute timeout"
+      },
+      {
+        "key": "B",
+        "text": "Amazon Bedrock Guardrails"
+      },
+      {
+        "key": "C",
+        "text": "Amazon Bedrock AgentCore"
+      },
+      {
+        "key": "D",
+        "text": "Amazon Bedrock Knowledge Bases"
+      }
+    ],
+    "correctKey": "C",
+    "explanation": "Amazon Bedrock AgentCore provides a managed runtime plus memory, gateway, identity, and observability for deploying agents — including framework-agnostic, custom agents — at production scale. A bare Lambda lacks session/memory/identity primitives; Guardrails is for safety filtering; Knowledge Bases is for RAG.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-impl-009",
+    "categoryKey": "implementation",
+    "difficulty": 4,
+    "tags": [
+      "orchestration",
+      "multi-agent"
+    ],
+    "prompt": "You must orchestrate a deterministic multi-step pipeline with explicit branching, retries, and human-approval steps between several model and Lambda calls. Which AWS service is the natural fit for that control flow?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Amazon Bedrock Guardrails"
+      },
+      {
+        "key": "B",
+        "text": "Amazon Titan Embeddings"
+      },
+      {
+        "key": "C",
+        "text": "Amazon OpenSearch Serverless"
+      },
+      {
+        "key": "D",
+        "text": "AWS Step Functions"
+      }
+    ],
+    "correctKey": "D",
+    "explanation": "AWS Step Functions models explicit state-machine workflows with branching, retries, error handling, and wait-for-approval steps, making it well suited to deterministic multi-step GenAI pipelines. Guardrails filters content, Titan Embeddings makes vectors, and OpenSearch Serverless stores them — none orchestrate workflows.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-impl-010",
+    "categoryKey": "implementation",
+    "difficulty": 2,
+    "tags": [
+      "prompting",
+      "system-prompt"
+    ],
+    "prompt": "In the Converse API, what is the purpose of the separate 'system' field?",
+    "options": [
+      {
+        "key": "A",
+        "text": "To set high-level instructions, role, and constraints that persist across the conversation"
+      },
+      {
+        "key": "B",
+        "text": "To store the model's billing metadata"
+      },
+      {
+        "key": "C",
+        "text": "To hold the vector embeddings of the conversation"
+      },
+      {
+        "key": "D",
+        "text": "To configure the VPC endpoint"
+      }
+    ],
+    "correctKey": "A",
+    "explanation": "The system field carries persistent guidance — persona, rules, and constraints — that frames the whole conversation, separate from per-turn user messages. It is not for billing, embeddings, or networking configuration.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-impl-011",
+    "categoryKey": "implementation",
+    "difficulty": 3,
+    "tags": [
+      "prompt-management"
+    ],
+    "prompt": "A team wants to version and update prompts independently of their application deployments, with the ability to reference a specific prompt version at runtime. Which Bedrock capability supports this?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Bedrock Model Evaluation"
+      },
+      {
+        "key": "B",
+        "text": "Bedrock Prompt Management"
+      },
+      {
+        "key": "C",
+        "text": "Bedrock Guardrails"
+      },
+      {
+        "key": "D",
+        "text": "Bedrock Provisioned Throughput"
+      }
+    ],
+    "correctKey": "B",
+    "explanation": "Prompt Management stores, versions, and serves prompts so they can evolve separately from application code, and you can pin a specific version. Model Evaluation scores models, Guardrails enforces safety, and Provisioned Throughput reserves capacity — none manage prompt versioning.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-impl-012",
+    "categoryKey": "implementation",
+    "difficulty": 4,
+    "tags": [
+      "invoke-model",
+      "converse-api"
+    ],
+    "prompt": "You need to pass a provider-specific inference parameter that the unified Converse schema does not expose. What is the appropriate approach?",
+    "options": [
+      {
+        "key": "A",
+        "text": "It is impossible; only Converse can run that model"
+      },
+      {
+        "key": "B",
+        "text": "Switch to a different cloud provider"
+      },
+      {
+        "key": "C",
+        "text": "Use InvokeModel with the model's native request body"
+      },
+      {
+        "key": "D",
+        "text": "Fine-tune the model to hardcode the parameter"
+      }
+    ],
+    "correctKey": "C",
+    "explanation": "InvokeModel accepts the model's native request body, so you can set provider-specific parameters that the unified Converse schema does not surface. Converse trades some provider-specific flexibility for portability; you do not need to change providers or fine-tune to set a parameter.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-impl-013",
+    "categoryKey": "implementation",
+    "difficulty": 3,
+    "tags": [
+      "agents",
+      "knowledge-bases"
+    ],
+    "prompt": "How can a Bedrock Agent answer questions from your private documents during its reasoning loop?",
+    "options": [
+      {
+        "key": "A",
+        "text": "By embedding all documents into the agent's IAM role"
+      },
+      {
+        "key": "B",
+        "text": "By uploading documents into the prompt's stop sequences"
+      },
+      {
+        "key": "C",
+        "text": "By enabling CloudFront caching on the agent"
+      },
+      {
+        "key": "D",
+        "text": "By associating a Knowledge Base with the agent so it can retrieve relevant passages"
+      }
+    ],
+    "correctKey": "D",
+    "explanation": "You associate one or more Knowledge Bases with the agent; during orchestration the agent can retrieve grounded passages to answer from your data. Documents are not stored in IAM roles or stop sequences, and CloudFront caching is unrelated to retrieval.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-impl-014",
+    "categoryKey": "implementation",
+    "difficulty": 3,
+    "tags": [
+      "agents",
+      "session-state"
+    ],
+    "prompt": "To maintain multi-turn context across calls to InvokeAgent for the same user conversation, what should the application do?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Reuse a consistent sessionId across the related requests"
+      },
+      {
+        "key": "B",
+        "text": "Send all prior turns as base64 in the HTTP headers"
+      },
+      {
+        "key": "C",
+        "text": "Create a new agent alias for every message"
+      },
+      {
+        "key": "D",
+        "text": "Disable streaming so context is retained"
+      }
+    ],
+    "correctKey": "A",
+    "explanation": "Passing a stable sessionId ties requests to the same conversation so the agent retains turn-by-turn context (and session attributes). You do not pack history into headers, mint a new alias per message, or rely on disabling streaming for memory.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-impl-015",
+    "categoryKey": "implementation",
+    "difficulty": 4,
+    "tags": [
+      "streaming",
+      "architecture"
+    ],
+    "prompt": "You are building a real-time chat web app that streams model output to browsers. Which architecture cleanly supports server-to-client token streaming?",
+    "options": [
+      {
+        "key": "A",
+        "text": "A nightly AWS Batch job writing transcripts to S3"
+      },
+      {
+        "key": "B",
+        "text": "API Gateway WebSocket API backed by Lambda calling ConverseStream"
+      },
+      {
+        "key": "C",
+        "text": "Amazon SES sending each token as an email"
+      },
+      {
+        "key": "D",
+        "text": "A static S3 website with no backend"
+      }
+    ],
+    "correctKey": "B",
+    "explanation": "An API Gateway WebSocket API with a Lambda that calls a streaming inference API (ConverseStream) can push incremental tokens to connected browsers in real time. Batch jobs are asynchronous, SES is email, and a static site alone cannot stream model output.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-impl-016",
+    "categoryKey": "implementation",
+    "difficulty": 3,
+    "tags": [
+      "prompt-flows"
+    ],
+    "prompt": "Amazon Bedrock Flows (Prompt Flows) is best described as which kind of tool?",
+    "options": [
+      {
+        "key": "A",
+        "text": "A managed Kubernetes cluster for model serving"
+      },
+      {
+        "key": "B",
+        "text": "A SQL engine for querying embeddings"
+      },
+      {
+        "key": "C",
+        "text": "A visual builder to chain prompts, models, knowledge bases, and logic into a workflow"
+      },
+      {
+        "key": "D",
+        "text": "A browser extension for testing prompts locally"
+      }
+    ],
+    "correctKey": "C",
+    "explanation": "Bedrock Flows lets you visually compose prompts, models, knowledge bases, agents, and conditional logic into an orchestrated generative-AI workflow. It is not a Kubernetes service, a SQL engine, or a browser extension.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-sec-001",
+    "categoryKey": "safety-security",
+    "difficulty": 2,
+    "tags": [
+      "guardrails",
+      "pii"
+    ],
+    "prompt": "With Amazon Bedrock Guardrails sensitive-information filters, what two actions can you take when PII such as an email address is detected in a response?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Encrypt the entire account or delete the model"
+      },
+      {
+        "key": "B",
+        "text": "Email the PII to an administrator or log it publicly"
+      },
+      {
+        "key": "C",
+        "text": "Increase temperature or reduce top-k"
+      },
+      {
+        "key": "D",
+        "text": "Block the response or mask/anonymize the detected PII"
+      }
+    ],
+    "correctKey": "D",
+    "explanation": "Guardrails sensitive-information policies can either block the interaction or mask/anonymize matched PII (replacing it with a placeholder). The other options are not Guardrails behaviors and several would be actively harmful.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-sec-002",
+    "categoryKey": "safety-security",
+    "difficulty": 3,
+    "tags": [
+      "guardrails",
+      "content-filters"
+    ],
+    "prompt": "Which of the following is a configurable content-filter category in Amazon Bedrock Guardrails?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Hate, insults, sexual, violence, misconduct, and prompt attacks"
+      },
+      {
+        "key": "B",
+        "text": "CPU, memory, disk, and network"
+      },
+      {
+        "key": "C",
+        "text": "Bronze, silver, and gold tiers"
+      },
+      {
+        "key": "D",
+        "text": "Read, write, and execute"
+      }
+    ],
+    "correctKey": "A",
+    "explanation": "Guardrails content filters cover categories such as hate, insults, sexual, violence, misconduct, and prompt attacks, each with adjustable strength. The other lists describe infrastructure metrics, pricing tiers, and file permissions — not Guardrails filter categories.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-sec-003",
+    "categoryKey": "safety-security",
+    "difficulty": 4,
+    "tags": [
+      "guardrails",
+      "grounding",
+      "hallucination"
+    ],
+    "prompt": "Which Amazon Bedrock Guardrails feature checks whether a model's response is supported by the provided source material and is relevant to the user's query, to catch hallucinations in a RAG app?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Denied topics"
+      },
+      {
+        "key": "B",
+        "text": "Contextual grounding check"
+      },
+      {
+        "key": "C",
+        "text": "Word filters"
+      },
+      {
+        "key": "D",
+        "text": "Prompt Management"
+      }
+    ],
+    "correctKey": "B",
+    "explanation": "The contextual grounding check scores responses for grounding (supported by the source passages) and relevance (on-topic for the query), and can block low-scoring answers — directly targeting hallucinations in RAG. Denied topics and word filters block specific subjects/terms; Prompt Management is not a Guardrails safety check.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-sec-004",
+    "categoryKey": "safety-security",
+    "difficulty": 4,
+    "tags": [
+      "guardrails",
+      "api"
+    ],
+    "prompt": "You want to apply an existing guardrail to text produced by a self-managed model that is not hosted on Bedrock. Which approach works?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Guardrails only work when attached to InvokeModel on Bedrock-hosted models"
+      },
+      {
+        "key": "B",
+        "text": "Re-train the external model with the guardrail weights"
+      },
+      {
+        "key": "C",
+        "text": "Call the ApplyGuardrail API independently on the text"
+      },
+      {
+        "key": "D",
+        "text": "Move the model into Amazon S3 first"
+      }
+    ],
+    "correctKey": "C",
+    "explanation": "The ApplyGuardrail API evaluates arbitrary input or output text against a guardrail without invoking a Bedrock model, so you can protect third-party or self-hosted models too. Guardrails are not limited to Bedrock InvokeModel, are not training weights, and S3 is irrelevant here.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-sec-005",
+    "categoryKey": "safety-security",
+    "difficulty": 3,
+    "tags": [
+      "guardrails",
+      "denied-topics"
+    ],
+    "prompt": "A banking assistant must never give investment advice, even though the model is capable of it. Which Guardrails policy expresses this most directly?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Provisioned Throughput limits"
+      },
+      {
+        "key": "B",
+        "text": "A VPC endpoint policy"
+      },
+      {
+        "key": "C",
+        "text": "A reranking model"
+      },
+      {
+        "key": "D",
+        "text": "Denied topics, defining 'investment advice' with examples"
+      }
+    ],
+    "correctKey": "D",
+    "explanation": "Denied topics let you define off-limits subjects (with a definition and sample phrases) that the guardrail blocks regardless of model capability. Throughput limits govern capacity, VPC endpoint policies govern network access, and rerankers order retrieval results — none enforce topic restrictions.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-sec-006",
+    "categoryKey": "safety-security",
+    "difficulty": 3,
+    "tags": [
+      "vpc",
+      "private-access"
+    ],
+    "prompt": "Your security policy forbids Bedrock API traffic from traversing the public internet. What should you configure?",
+    "options": [
+      {
+        "key": "A",
+        "text": "An interface VPC endpoint (AWS PrivateLink) for Bedrock"
+      },
+      {
+        "key": "B",
+        "text": "A public NAT gateway with an Elastic IP"
+      },
+      {
+        "key": "C",
+        "text": "An internet gateway attached to the subnet"
+      },
+      {
+        "key": "D",
+        "text": "A CloudFront distribution in front of Bedrock"
+      }
+    ],
+    "correctKey": "A",
+    "explanation": "An interface VPC endpoint (PrivateLink) keeps Bedrock API calls on the AWS private network, never touching the public internet. A NAT gateway and internet gateway both route to the internet, and CloudFront is a public CDN — none provide private API connectivity.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-sec-007",
+    "categoryKey": "safety-security",
+    "difficulty": 3,
+    "tags": [
+      "iam",
+      "least-privilege"
+    ],
+    "prompt": "Following least privilege, how should you grant an application permission to call only a specific foundation model on Bedrock?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Give the application the AdministratorAccess managed policy"
+      },
+      {
+        "key": "B",
+        "text": "Attach an IAM policy allowing bedrock:InvokeModel scoped to that model's ARN"
+      },
+      {
+        "key": "C",
+        "text": "Embed long-lived root access keys in the app"
+      },
+      {
+        "key": "D",
+        "text": "Disable IAM and rely on the VPC for security"
+      }
+    ],
+    "correctKey": "B",
+    "explanation": "A least-privilege IAM policy granting bedrock:InvokeModel on the specific model ARN limits the app to exactly what it needs. AdministratorAccess is over-broad, root keys in code are a serious anti-pattern, and IAM cannot be 'disabled' in favor of network controls.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-sec-008",
+    "categoryKey": "safety-security",
+    "difficulty": 3,
+    "tags": [
+      "encryption",
+      "kms"
+    ],
+    "prompt": "You must encrypt a fine-tuned custom model and its training artifacts with a key your team controls and can audit. What should you use?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Client-side ROT13 encoding"
+      },
+      {
+        "key": "B",
+        "text": "An S3 bucket policy alone"
+      },
+      {
+        "key": "C",
+        "text": "A customer managed AWS KMS key"
+      },
+      {
+        "key": "D",
+        "text": "A security group rule"
+      }
+    ],
+    "correctKey": "C",
+    "explanation": "A customer managed AWS KMS key lets you control rotation, policies, and audit usage via CloudTrail when encrypting custom models and related data. ROT13 is not encryption, a bucket policy is access control (not encryption), and security groups control network traffic.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-sec-009",
+    "categoryKey": "safety-security",
+    "difficulty": 3,
+    "tags": [
+      "logging",
+      "auditing"
+    ],
+    "prompt": "Compliance requires capturing the full prompts and completions of Bedrock invocations for later review. What should you enable?",
+    "options": [
+      {
+        "key": "A",
+        "text": "AWS Config rules only"
+      },
+      {
+        "key": "B",
+        "text": "Amazon Inspector network scans"
+      },
+      {
+        "key": "C",
+        "text": "VPC flow logs"
+      },
+      {
+        "key": "D",
+        "text": "Model invocation logging to Amazon S3 and/or CloudWatch Logs"
+      }
+    ],
+    "correctKey": "D",
+    "explanation": "Bedrock model invocation logging captures request and response data (text, and optionally image/embedding) to S3 and/or CloudWatch Logs for audit. AWS Config tracks resource configuration, Inspector scans for vulnerabilities, and VPC flow logs record network metadata — none capture prompt/completion content. (CloudTrail records the management/API events but not full payloads.)",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-sec-010",
+    "categoryKey": "safety-security",
+    "difficulty": 4,
+    "tags": [
+      "q-business",
+      "access-control"
+    ],
+    "prompt": "Business users need a ready-made enterprise assistant over many connected data sources that automatically respects each user's existing document permissions, with minimal development. Which service fits best?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Amazon Q Business"
+      },
+      {
+        "key": "B",
+        "text": "A hand-built RAG app on Bedrock Knowledge Bases with custom auth"
+      },
+      {
+        "key": "C",
+        "text": "Amazon Bedrock Guardrails"
+      },
+      {
+        "key": "D",
+        "text": "Amazon Titan Embeddings"
+      }
+    ],
+    "correctKey": "A",
+    "explanation": "Amazon Q Business is a managed enterprise assistant with built-in connectors and identity-aware access control that honors users' source permissions out of the box — minimal build. A custom Knowledge Bases app gives more control but requires you to build access filtering; Guardrails and Titan Embeddings are components, not an end-user assistant.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-sec-011",
+    "categoryKey": "safety-security",
+    "difficulty": 3,
+    "tags": [
+      "guardrails",
+      "prompt-injection"
+    ],
+    "prompt": "Which Guardrails capability helps defend against a user trying to override the system instructions with inputs like 'ignore all previous instructions'?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Provisioned Throughput"
+      },
+      {
+        "key": "B",
+        "text": "The prompt-attack content filter"
+      },
+      {
+        "key": "C",
+        "text": "Contextual grounding check"
+      },
+      {
+        "key": "D",
+        "text": "The web crawler data source"
+      }
+    ],
+    "correctKey": "B",
+    "explanation": "The prompt-attack filter within Guardrails content filters detects jailbreak/prompt-injection attempts in user input and can block them. Contextual grounding addresses hallucination, not injection; throughput and the web crawler are unrelated to attack detection.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-sec-012",
+    "categoryKey": "safety-security",
+    "difficulty": 4,
+    "tags": [
+      "cross-region-inference",
+      "data-residency"
+    ],
+    "prompt": "A workload has strict data-residency rules and you are evaluating cross-region inference to improve availability and throughput. What must you verify?",
+    "options": [
+      {
+        "key": "A",
+        "text": "That cross-region inference disables all logging"
+      },
+      {
+        "key": "B",
+        "text": "That it bypasses IAM authorization"
+      },
+      {
+        "key": "C",
+        "text": "That the Regions in the inference profile are all acceptable destinations for the data under your residency policy"
+      },
+      {
+        "key": "D",
+        "text": "That it converts the model to an embeddings model"
+      }
+    ],
+    "correctKey": "C",
+    "explanation": "Cross-region inference can route requests to other Regions in the inference profile to absorb bursts, so you must confirm every destination Region is permitted by your data-residency requirements. It does not disable logging, bypass IAM, or change the model's type.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-opt-001",
+    "categoryKey": "optimization",
+    "difficulty": 3,
+    "tags": [
+      "batch-inference",
+      "cost"
+    ],
+    "prompt": "You must process millions of documents through a model overnight where latency does not matter but cost does. Which option is most cost-effective?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Synchronous on-demand InvokeModel in a tight loop"
+      },
+      {
+        "key": "B",
+        "text": "Provisioned Throughput sized for peak real-time traffic"
+      },
+      {
+        "key": "C",
+        "text": "ConverseStream for each document"
+      },
+      {
+        "key": "D",
+        "text": "Batch inference (asynchronous model invocation jobs)"
+      }
+    ],
+    "correctKey": "D",
+    "explanation": "Batch inference processes large datasets asynchronously at a lower price per token than real-time calls, ideal when latency is not a concern. A synchronous loop is slower and pricier per unit, peak-sized Provisioned Throughput wastes money for a one-off job, and streaming is for interactive UX, not bulk cost savings.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-opt-002",
+    "categoryKey": "optimization",
+    "difficulty": 3,
+    "tags": [
+      "provisioned-throughput",
+      "cost"
+    ],
+    "prompt": "A production app sends a high, steady volume of requests to a single model and needs predictable throughput and pricing. Which model-access mode is most appropriate?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Provisioned Throughput"
+      },
+      {
+        "key": "B",
+        "text": "On-demand only, with no other change"
+      },
+      {
+        "key": "C",
+        "text": "Batch inference"
+      },
+      {
+        "key": "D",
+        "text": "Local inference on a developer laptop"
+      }
+    ],
+    "correctKey": "A",
+    "explanation": "Provisioned Throughput reserves model capacity (model units) for consistent throughput and predictable cost under sustained high load, and is also required for custom models. On-demand suits spiky/low volume; batch is for asynchronous bulk jobs; laptop inference is irrelevant to a managed Bedrock workload.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-opt-003",
+    "categoryKey": "optimization",
+    "difficulty": 3,
+    "tags": [
+      "prompt-caching",
+      "latency"
+    ],
+    "prompt": "Many requests in your app reuse the same large block of instructions and reference text as a prefix. Which Bedrock feature reduces cost and latency for that repeated context?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Denied topics"
+      },
+      {
+        "key": "B",
+        "text": "Prompt caching"
+      },
+      {
+        "key": "C",
+        "text": "Return of Control"
+      },
+      {
+        "key": "D",
+        "text": "Hierarchical chunking"
+      }
+    ],
+    "correctKey": "B",
+    "explanation": "Prompt caching reuses the processing of a repeated prompt prefix across requests, cutting input-token cost and time-to-first-token. Denied topics is a guardrail, Return of Control governs agent execution, and hierarchical chunking is an ingestion strategy — none cache prompts.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-opt-004",
+    "categoryKey": "optimization",
+    "difficulty": 4,
+    "tags": [
+      "distillation",
+      "cost"
+    ],
+    "prompt": "You want a smaller, cheaper, faster model that retains much of a larger model's quality on your specific task by training it on the larger model's outputs. Which technique is this?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Prompt caching"
+      },
+      {
+        "key": "B",
+        "text": "Quantized embedding storage"
+      },
+      {
+        "key": "C",
+        "text": "Model distillation (teacher-student)"
+      },
+      {
+        "key": "D",
+        "text": "Cross-region inference"
+      }
+    ],
+    "correctKey": "C",
+    "explanation": "Model distillation trains a smaller 'student' model on a larger 'teacher' model's responses to approximate its quality at lower cost and latency for the target task. Prompt caching reuses context, embedding quantization shrinks vectors, and cross-region inference balances load — none transfer capability into a smaller model.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-opt-005",
+    "categoryKey": "optimization",
+    "difficulty": 3,
+    "tags": [
+      "model-selection",
+      "cost"
+    ],
+    "prompt": "A simple, high-volume classification step currently uses a large flagship model and is too expensive. What is usually the most effective first optimization?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Always pick the largest available model for consistency"
+      },
+      {
+        "key": "B",
+        "text": "Raise the temperature to speed up generation"
+      },
+      {
+        "key": "C",
+        "text": "Disable Guardrails to save tokens"
+      },
+      {
+        "key": "D",
+        "text": "Route the simple task to a smaller, lower-cost model and verify quality"
+      }
+    ],
+    "correctKey": "D",
+    "explanation": "Matching model size to task complexity — using a small model (e.g., a Haiku/Nova-class model) for easy, high-volume work — typically yields large cost and latency wins while preserving acceptable quality. Bigger-is-always-better wastes money, temperature does not reduce cost, and disabling Guardrails trades away safety, not a sound optimization.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-opt-006",
+    "categoryKey": "optimization",
+    "difficulty": 4,
+    "tags": [
+      "intelligent-prompt-routing",
+      "cost"
+    ],
+    "prompt": "Amazon Bedrock Intelligent Prompt Routing helps optimize cost and quality by doing what at request time?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Routing each prompt to a more or less capable model in a family based on predicted complexity"
+      },
+      {
+        "key": "B",
+        "text": "Caching the vector index in memory"
+      },
+      {
+        "key": "C",
+        "text": "Translating prompts into multiple languages"
+      },
+      {
+        "key": "D",
+        "text": "Splitting the prompt across multiple AWS accounts"
+      }
+    ],
+    "correctKey": "A",
+    "explanation": "Intelligent Prompt Routing dynamically directs each request to a smaller or larger model within a family according to the prompt's predicted difficulty, balancing cost against response quality. It is not a caching, translation, or cross-account mechanism.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-opt-007",
+    "categoryKey": "optimization",
+    "difficulty": 3,
+    "tags": [
+      "tokens",
+      "context"
+    ],
+    "prompt": "Your RAG prompts are expensive because you always inject the top 25 retrieved chunks, most of which are irrelevant. Which change best reduces token cost without hurting answer quality?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Switch the output format from JSON to YAML"
+      },
+      {
+        "key": "B",
+        "text": "Retrieve fewer, higher-quality chunks (lower top-k) and/or rerank before generation"
+      },
+      {
+        "key": "C",
+        "text": "Increase the model's max output tokens"
+      },
+      {
+        "key": "D",
+        "text": "Add more categories to the manifest"
+      }
+    ],
+    "correctKey": "B",
+    "explanation": "Sending fewer but more relevant chunks (a smaller top-k, optionally after reranking) cuts input tokens while keeping the passages that actually answer the question. Output format and higher max-output-tokens do not reduce input cost, and manifest categories are unrelated to inference cost.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-test-001",
+    "categoryKey": "testing",
+    "difficulty": 3,
+    "tags": [
+      "evaluation",
+      "metrics"
+    ],
+    "prompt": "Which automatic metric is most appropriate for evaluating the quality of generated text summaries against reference summaries?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Requests per second"
+      },
+      {
+        "key": "B",
+        "text": "p99 latency"
+      },
+      {
+        "key": "C",
+        "text": "ROUGE"
+      },
+      {
+        "key": "D",
+        "text": "Cosine of the VPC endpoint"
+      }
+    ],
+    "correctKey": "C",
+    "explanation": "ROUGE measures n-gram/overlap recall between generated and reference summaries, making it a standard summarization metric. Requests per second and p99 latency are performance metrics, not quality measures, and the last option is nonsense.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-test-002",
+    "categoryKey": "testing",
+    "difficulty": 4,
+    "tags": [
+      "evaluation",
+      "metrics"
+    ],
+    "prompt": "Match the evaluation need to the metric: you need (1) translation quality against references and (2) semantic similarity using contextual embeddings rather than exact word overlap.",
+    "options": [
+      {
+        "key": "A",
+        "text": "(1) BERTScore and (2) BLEU"
+      },
+      {
+        "key": "B",
+        "text": "(1) ROUGE and (2) F1 only"
+      },
+      {
+        "key": "C",
+        "text": "(1) Accuracy and (2) RPS"
+      },
+      {
+        "key": "D",
+        "text": "(1) BLEU and (2) BERTScore"
+      }
+    ],
+    "correctKey": "D",
+    "explanation": "BLEU scores translation by n-gram precision against references, while BERTScore compares contextual embeddings to capture semantic similarity beyond exact word matches. Swapping them (B) is wrong; ROUGE targets summarization recall, and accuracy/RPS do not measure these qualities.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-test-003",
+    "categoryKey": "testing",
+    "difficulty": 3,
+    "tags": [
+      "throttling",
+      "resilience"
+    ],
+    "prompt": "Under bursty traffic your app receives Bedrock ThrottlingException errors. What is the recommended way to handle this in the client?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Retry with exponential backoff and jitter, and request a quota increase or use Provisioned Throughput if sustained"
+      },
+      {
+        "key": "B",
+        "text": "Immediately retry in a tight loop with no delay"
+      },
+      {
+        "key": "C",
+        "text": "Switch the model to an embeddings model"
+      },
+      {
+        "key": "D",
+        "text": "Ignore the error and return a blank response"
+      }
+    ],
+    "correctKey": "A",
+    "explanation": "Exponential backoff with jitter spreads retries and lets transient throttling clear; for sustained demand, raise service quotas or move to Provisioned Throughput. Tight-loop retries worsen throttling, changing model type does not address capacity, and silently dropping responses degrades the product.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-test-004",
+    "categoryKey": "testing",
+    "difficulty": 4,
+    "tags": [
+      "rag-evaluation",
+      "groundedness"
+    ],
+    "prompt": "When evaluating a RAG system specifically, which pair of dimensions matters most beyond generic fluency?",
+    "options": [
+      {
+        "key": "A",
+        "text": "GPU temperature and disk IOPS"
+      },
+      {
+        "key": "B",
+        "text": "Retrieval relevance and answer faithfulness (groundedness) to the retrieved context"
+      },
+      {
+        "key": "C",
+        "text": "Font size and color contrast"
+      },
+      {
+        "key": "D",
+        "text": "Number of IAM roles and S3 buckets"
+      }
+    ],
+    "correctKey": "B",
+    "explanation": "RAG evaluation focuses on whether retrieval surfaced relevant context and whether the generated answer is faithful (grounded) to that context rather than hallucinated. Hardware metrics, UI styling, and resource counts are unrelated to RAG answer quality.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-test-005",
+    "categoryKey": "testing",
+    "difficulty": 3,
+    "tags": [
+      "model-evaluation",
+      "bedrock"
+    ],
+    "prompt": "Amazon Bedrock model evaluation lets you compare models. Which combination of evaluation methods does it support?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Only manual spreadsheet scoring"
+      },
+      {
+        "key": "B",
+        "text": "Only load testing with synthetic traffic"
+      },
+      {
+        "key": "C",
+        "text": "Automatic metric-based evaluation, human evaluation, and LLM-as-a-judge"
+      },
+      {
+        "key": "D",
+        "text": "Only A/B DNS routing"
+      }
+    ],
+    "correctKey": "C",
+    "explanation": "Bedrock evaluation supports automatic metrics, human review (your own or AWS-managed workforce), and model-as-a-judge (LLM-as-a-judge) approaches. Spreadsheet-only scoring, load testing, and DNS routing are not what Bedrock model evaluation provides.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  },
+  {
+    "id": "aws-genai-test-006",
+    "categoryKey": "testing",
+    "difficulty": 4,
+    "tags": [
+      "observability",
+      "troubleshooting"
+    ],
+    "prompt": "A multi-step agent intermittently produces slow responses and you need to see which tool call or model invocation dominates latency. Which approach helps most?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Reading only the final HTTP status code"
+      },
+      {
+        "key": "B",
+        "text": "Lowering the model temperature"
+      },
+      {
+        "key": "C",
+        "text": "Renaming the agent alias"
+      },
+      {
+        "key": "D",
+        "text": "Distributed tracing with AWS X-Ray plus CloudWatch metrics/logs across the steps"
+      }
+    ],
+    "correctKey": "D",
+    "explanation": "Distributed tracing (X-Ray) with CloudWatch metrics and logs reveals per-step timings so you can pinpoint the slow tool or model call in an agent workflow. A single status code lacks step detail, temperature does not address latency attribution, and renaming an alias changes nothing about performance.",
+    "source": "generated",
+    "reviewStatus": "draft"
+  }
+]
