@@ -1,0 +1,36 @@
+name: Deploy
+
+# Build this pack into a static app and publish it to Cloudflare Pages.
+# Owns the triggers + secrets; the build/deploy recipe lives in the engine
+# (quizmill/quizmill/.github/workflows/deploy-pack.yml) so every pack app
+# builds and deploys identically.
+#
+# Required repo (or org) secrets:
+#   CLOUDFLARE_API_TOKEN    token with "Cloudflare Pages — Edit"
+#   CLOUDFLARE_ACCOUNT_ID   the quizmill Cloudflare account id
+# Optional (enables cloud sync):
+#   NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pack.json'
+      - 'questions.json'
+      - 'scenarios.json'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
+  # Engine releases fan out a dispatch carrying the just-published version
+  # so the app rebuilds on the new engine without waiting for the daily cron.
+  repository_dispatch:
+    types: [engine-release]
+
+jobs:
+  deploy:
+    uses: quizmill/quizmill/.github/workflows/deploy-pack.yml@main
+    with:
+      project: aws-genai-cert
+      app: aws-genai-cert-app
+      pack: '.'
+      engine: ${{ github.event.client_payload.version || 'latest' }}
+    secrets: inherit
