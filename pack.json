@@ -1,53 +1,106 @@
 {
   "schemaVersion": 2,
-  "id": "aws-genai-cert",
-  "title": "AWS GenAI Developer — Professional",
-  "description": "Exam practice for AWS Certified Generative AI Developer – Professional (AIP-C01): Bedrock, RAG, agents, guardrails, and GenAI ops.",
-  "homeSubtitle": "Practice for the AWS Certified Generative AI Developer – Professional (AIP-C01) exam.",
-  "themeColor": "#232f3e",
+  "id": "aws-genai",
+  "title": "AWS GenAI Developer Pro",
+  "description": "Practice for the AWS Certified Generative AI Developer - Professional (AIP-C01) exam - foundation model integration, RAG, agents, prompt management, security, and observability on AWS.",
+  "homeSubtitle": "Grind toward AIP-C01.",
+  "themeColor": "#ff9900",
   "categories": [
     {
-      "key": "fm-data",
-      "label": "Foundation Models, Data & Compliance",
-      "shortLabel": "FM & Data",
-      "weight": 0.31
+      "key": "well-architected",
+      "label": "Well-Architected GenAI Lens",
+      "shortLabel": "Well-Architected",
+      "icon": "📐"
     },
     {
-      "key": "implementation",
-      "label": "Implementation & Integration",
-      "shortLabel": "Implementation",
-      "weight": 0.26
+      "key": "fm-selection",
+      "label": "Foundation Models: Selection & Inference",
+      "shortLabel": "FM Selection",
+      "icon": "🧬"
     },
     {
-      "key": "safety-security",
-      "label": "AI Safety, Security & Governance",
-      "shortLabel": "Safety & Security",
-      "weight": 0.2
+      "key": "data-preparation",
+      "label": "Data Preparation",
+      "shortLabel": "Data Prep",
+      "icon": "🧹"
     },
     {
-      "key": "optimization",
-      "label": "Operational Efficiency & Optimization",
-      "shortLabel": "Optimization",
-      "weight": 0.12
+      "key": "rag-knowledge-bases",
+      "label": "RAG, Knowledge Bases & Vector Stores",
+      "shortLabel": "RAG & KB",
+      "icon": "📚"
     },
     {
-      "key": "testing",
-      "label": "Testing, Validation & Troubleshooting",
-      "shortLabel": "Testing",
-      "weight": 0.11
+      "key": "embeddings-retrieval",
+      "label": "Chunking, Embeddings & Retrieval",
+      "shortLabel": "Embeddings",
+      "icon": "🧩"
+    },
+    {
+      "key": "prompt-management",
+      "label": "Prompt Management & Inference Control",
+      "shortLabel": "Prompting",
+      "icon": "✍️"
+    },
+    {
+      "key": "agents",
+      "label": "Agents: Bedrock Agents, AgentCore, Strands",
+      "shortLabel": "Agents",
+      "icon": "🤖"
+    },
+    {
+      "key": "deployment-devtools",
+      "label": "Model Deployment & Developer Tools",
+      "shortLabel": "Deploy & DevTools",
+      "icon": "🚀"
+    },
+    {
+      "key": "observability",
+      "label": "Observability & Monitoring",
+      "shortLabel": "Observability",
+      "icon": "📊"
+    },
+    {
+      "key": "security-governance",
+      "label": "Security, Guardrails & Compliance",
+      "shortLabel": "Security",
+      "icon": "🛡️"
     }
   ],
+  "levelsLabel": "Tier",
+  "levels": [
+    {
+      "key": "easy",
+      "label": "Easy"
+    },
+    {
+      "key": "hard",
+      "label": "Hard"
+    },
+    {
+      "key": "veryhard",
+      "label": "Very hard"
+    }
+  ],
+  "exam": {
+    "label": "AIP-C01 exam",
+    "passPct": 75,
+    "scaled": true,
+    "questionCount": 65
+  },
+  "games": {},
   "sources": [
     {
-      "label": "Generated",
-      "name": "Agent-authored",
-      "blurb": "Questions written for this pack and grounded in the published AIP-C01 exam guide domains. All start as draft — review before relying on them for exam prep."
+      "label": "MIT",
+      "name": "JeremyEngineer/aws-aip-c01-practice-exam",
+      "blurb": "Community-authored AIP-C01 practice questions with explanations and AWS doc links, adapted under MIT.",
+      "url": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam"
     },
     {
       "label": "AWS",
-      "name": "AWS Certification",
-      "blurb": "Mapped to the official AWS Certified Generative AI Developer – Professional (AIP-C01) exam guide.",
-      "url": "https://docs.aws.amazon.com/aws-certification/latest/examguides/ai-professional-01.html"
+      "name": "AIP-C01 exam guide",
+      "blurb": "Concepts aligned to the official AWS Certified Generative AI Developer - Professional exam guide.",
+      "url": "https://aws.amazon.com/certification/certified-generative-ai-developer-professional/"
     }
   ]
 }
