@@ -1,0 +1,27 @@
+# Sync-worker deploy config for THIS Cloudflare account.
+#
+# The worker source is the engine's reference implementation
+# (quizmill/cloudflare/src/worker.ts) — this file only pins our
+# account-specific bits (D1 database id), so the engine repo stays an
+# untouched blueprint. Deploy expects the engine checked out as a sibling:
+#
+#   npx wrangler deploy -c cloudflare/wrangler.toml
+#
+# One worker serves every pack (rows are partitioned per pack), so despite
+# the database being named "aws-genai", future packs reuse this same
+# worker + database.
+
+name = "quizmill-sync"
+main = "../../quizmill/cloudflare/src/worker.ts"
+compatibility_date = "2026-06-01"
+
+# Serve the worker at our own domain (one sync endpoint for all packs).
+# Wrangler creates the DNS record + certificate on deploy.
+routes = [
+  { pattern = "sync.quizmill.dev", custom_domain = true }
+]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "aws-genai"
+database_id = "e7554c8a-f42f-452d-96a7-9fb7afdd5a56"
