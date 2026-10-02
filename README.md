@@ -54,7 +54,7 @@ year. What changed in the pack:
     Amazon Q Developer agentic chat and code reviews.
 - **128 questions removed**: 38 that turned out to be AWS's official practice
   questions (see NOTICE.md), 85 "Hard" items that were near-verbatim twins of
-  a "Very hard" item, and 5 that could not be made sound.
+  a "Very hard" item, and 5 retired as redundant or unsound.
 
 ## Categories
 
