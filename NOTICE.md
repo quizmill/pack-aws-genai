@@ -1,8 +1,9 @@
 # Notices
 
-The question bank in this pack is adapted from the following MIT-licensed
-work. Every question records its origin in its `sourceRef` field in
-`questions.json`.
+332 of the 545 questions in this pack are adapted from the MIT-licensed work
+below. The other **213 were written for this pack** from AWS documentation and
+the official exam guide and are not derived from it. Every question records
+its origin in its `sourceRef` field in `questions.json`.
 
 ## JeremyEngineer/aws-aip-c01-practice-exam
 
@@ -15,7 +16,9 @@ reordered (the upstream bank lists the correct option first), the per-option
 explanations were combined into a single teaching explanation with the
 upstream AWS doc link appended, the upstream `task` taxonomy was grouped into
 this pack's categories, and the three difficulty banks became the `Tier`
-levels. Two items flagged as imprecise during review were removed.
+levels. Two items flagged as imprecise during review were removed. In October
+2026 a further 92 were corrected against current AWS documentation, 85 "hard"
+items that duplicated a "very hard" item were removed, and 5 were retired.
 
 The upstream MIT license, reproduced in full as required:
 
@@ -45,7 +48,12 @@ SOFTWARE.
 
 ## Not included
 
-No AWS-copyrighted material is included in this pack. AWS Skill Builder's
-official practice questions, the Official Pretest, and any commercial
-question banks are proprietary and are **not** redistributed here. Study
-those directly on AWS Skill Builder — they are the authoritative source.
+AWS Skill Builder's official practice questions, the Official Pretest, and
+commercial question banks are proprietary and are **not** redistributed here.
+Study those directly on AWS Skill Builder — they are the authoritative source.
+
+**Correction (October 2026):** earlier versions of this pack contained 38
+questions (ids `aws-genai-hard-bp-*` and `aws-genai-easy-off-*`) that the
+upstream repository had taken from the AWS Skill Builder Official Practice
+Question Set; upstream's MIT license cannot cover that text. They were removed
+in the October 2026 refresh. No question in the current bank derives from them.
