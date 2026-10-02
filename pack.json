@@ -10,61 +10,85 @@
       "key": "well-architected",
       "label": "Well-Architected GenAI Lens",
       "shortLabel": "Well-Architected",
-      "icon": "📐"
+      "icon": "📐",
+      "weight": 0.03
     },
     {
       "key": "fm-selection",
       "label": "Foundation Models: Selection & Inference",
       "shortLabel": "FM Selection",
-      "icon": "🧬"
+      "icon": "🧬",
+      "weight": 0.07
     },
     {
       "key": "data-preparation",
       "label": "Data Preparation",
       "shortLabel": "Data Prep",
-      "icon": "🧹"
+      "icon": "🧹",
+      "weight": 0.05
     },
     {
       "key": "rag-knowledge-bases",
       "label": "RAG, Knowledge Bases & Vector Stores",
       "shortLabel": "RAG & KB",
-      "icon": "📚"
+      "icon": "📚",
+      "weight": 0.06
     },
     {
       "key": "embeddings-retrieval",
       "label": "Chunking, Embeddings & Retrieval",
       "shortLabel": "Embeddings",
-      "icon": "🧩"
+      "icon": "🧩",
+      "weight": 0.06
     },
     {
       "key": "prompt-management",
       "label": "Prompt Management & Inference Control",
       "shortLabel": "Prompting",
-      "icon": "✍️"
+      "icon": "✍️",
+      "weight": 0.04
     },
     {
       "key": "agents",
       "label": "Agents: Bedrock Agents, AgentCore, Strands",
       "shortLabel": "Agents",
-      "icon": "🤖"
+      "icon": "🤖",
+      "weight": 0.1
     },
     {
       "key": "deployment-devtools",
-      "label": "Model Deployment & Developer Tools",
-      "shortLabel": "Deploy & DevTools",
-      "icon": "🚀"
+      "label": "Deployment, Integration & Developer Tools",
+      "shortLabel": "Deploy & Integrate",
+      "icon": "🚀",
+      "weight": 0.16
     },
     {
       "key": "observability",
       "label": "Observability & Monitoring",
       "shortLabel": "Observability",
-      "icon": "📊"
+      "icon": "📊",
+      "weight": 0.05
     },
     {
       "key": "security-governance",
       "label": "Security, Guardrails & Compliance",
       "shortLabel": "Security",
-      "icon": "🛡️"
+      "icon": "🛡️",
+      "weight": 0.2
+    },
+    {
+      "key": "cost-performance",
+      "label": "Cost & Performance Optimization",
+      "shortLabel": "Cost & Perf",
+      "icon": "⚡",
+      "weight": 0.07
+    },
+    {
+      "key": "evaluation-testing",
+      "label": "Evaluation, Testing & Troubleshooting",
+      "shortLabel": "Eval & Testing",
+      "icon": "🧪",
+      "weight": 0.11
     }
   ],
   "levelsLabel": "Tier",
@@ -80,27 +104,34 @@
     {
       "key": "veryhard",
       "label": "Very hard"
+    },
+    {
+      "key": "exam",
+      "label": "Exam-level"
     }
   ],
   "exam": {
     "label": "AIP-C01 exam",
     "passPct": 75,
     "scaled": true,
-    "questionCount": 65
+    "questionCount": 65,
+    "scope": {
+      "level": "exam"
+    }
   },
   "games": {},
   "sources": [
+    {
+      "label": "AWS",
+      "name": "AIP-C01 exam guide",
+      "blurb": "Exam-level questions are written against the official exam guide task and skill statements and verified against AWS documentation.",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/ai-professional-01/ai-professional-01.html"
+    },
     {
       "label": "MIT",
       "name": "JeremyEngineer/aws-aip-c01-practice-exam",
       "blurb": "Community-authored AIP-C01 practice questions with explanations and AWS doc links, adapted under MIT.",
       "url": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam"
-    },
-    {
-      "label": "AWS",
-      "name": "AIP-C01 exam guide",
-      "blurb": "Concepts aligned to the official AWS Certified Generative AI Developer - Professional exam guide.",
-      "url": "https://aws.amazon.com/certification/certified-generative-ai-developer-professional/"
     }
   ]
 }
