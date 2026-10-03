@@ -1,7 +1,7 @@
 # Notices
 
-332 of the 697 questions in this pack are adapted from the MIT-licensed work
-below. The other **365 were written for this pack** from AWS documentation and
+332 of the 837 questions in this pack are adapted from the MIT-licensed work
+below. The other **505 were written for this pack** from AWS documentation and
 the official exam guide and are not derived from it. Every question records
 its origin in its `sourceRef` field in `questions.json`.
 
