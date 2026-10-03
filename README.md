@@ -2,8 +2,8 @@
 
 Practice for the **AWS Certified Generative AI Developer – Professional
 (AIP-C01)** exam: 75 questions (65 scored, 10 unscored), 180 minutes, pass at
-750/1000 scaled, multiple choice and multiple response only. **697 questions**,
-of which **335 are exam-level** scenario questions written against the official
+750/1000 scaled, multiple choice and multiple response only. **837 questions**,
+of which **415 are exam-level** scenario questions written against the official
 exam guide's 20 tasks and verified against current AWS documentation.
 
 > **Unofficial.** Not affiliated with or endorsed by AWS. This is community
@@ -14,14 +14,19 @@ exam guide's 20 tasks and verified against current AWS documentation.
 
 Filter by **Tier**:
 
-- **Exam-level (335)** — long scenarios (about 700 characters) with three or
-  four stacked constraints and four workable options. 94 are multiple response.
-  305 of them come as pairs: two questions share the same options word for word
+- **Exam-level (415)** — long scenarios (about 700 characters) with three or
+  four stacked constraints and four workable options. 114 are multiple response.
+  385 of them come as pairs: two questions share the same options word for word
   but have different scenarios and different answers, so the options alone tell
   you nothing and only the constraints in the stem decide. In about half the
   pairs the option that looks like the obvious managed choice is wrong both
   times. This is the tier to drill; the in-app readiness estimate is computed
   from it only, weighted by the exam blueprint (31 / 26 / 20 / 12 / 11%).
+- **Foundations (60)** — short recall questions on the supporting services the
+  exam assumes you know (S3, IAM, KMS, VPC, analytics, compute, databases,
+  developer tools, the classic ML services, networking and storage), each with
+  a GenAI angle. These show up on the exam as one-fact qualifiers inside
+  scenarios.
 - **Easy / Hard / Very hard (362)** — mostly single-fact recall inherited from
   a community bank. Useful as a warm-up for service vocabulary; the tier names
   overstate their difficulty (see Known limitations).
@@ -43,6 +48,21 @@ year. What changed in the pack:
   removed, picked the keyed answer on 99% of them, so they were rewritten as
   pairs. On the pairs the same test scores 18% on single-answer questions
   (25% is chance) and 29% exact-match on multiple response (10% is chance).
+- **80 more exam-level questions (40 pairs) and 60 foundations questions** on
+  topics a widely used prep course covers and the pack did not: Amazon Quick,
+  Comprehend Medical, OpenSearch index design and tuning, DynamoDB for
+  conversation state and vector search, S3 Vectors in depth, Neptune Analytics,
+  Valkey and MemoryDB, SageMaker deployment guardrails, Model Registry, lineage
+  and JumpStart private hubs, MLflow, AppSync and Amplify, AppConfig, CloudWatch
+  RUM, ROUGE and BERTScore, CodePipeline and CodeDeploy, messaging patterns,
+  Outposts and Wavelength, Lake Formation, Lex with Connect. Only the course's
+  lecture titles were used, as a topic list; every question is original and
+  written from AWS documentation. Blind review: 62 of the 80 pair questions
+  passed as written and 18 were fixed (14 in one batch, which then had a second
+  independent pass that fixed 6 more); 57 of 60 foundations questions passed
+  and 3 were fixed. On the options-only test these 40 pairs score 38% on
+  single-answer questions and 30% on multiple response, weaker than the 305
+  above; the correct option is the longest in 38% of them.
 - **92 inherited questions corrected** where AWS has moved on. Two had their
   answer key changed. The main causes:
   - Bedrock service tiers (Reserved, Priority, Standard, Flex) now sit
@@ -69,29 +89,29 @@ year. What changed in the pack:
 Weights are the exam blueprint's domain weights spread over the pack's
 categories; they drive the readiness estimate.
 
-| Category | Questions | Exam-level | Weight |
-| --- | --- | --- | --- |
-| Well-Architected GenAI Lens | 37 | 10 | 3% |
-| Foundation Models: Selection & Inference | 72 | 22 | 7% |
-| Data Preparation | 48 | 12 | 5% |
-| RAG, Knowledge Bases & Vector Stores | 77 | 18 | 6% |
-| Chunking, Embeddings & Retrieval | 55 | 18 | 6% |
-| Prompt Management & Inference Control | 40 | 12 | 4% |
-| Agents: Bedrock Agents, AgentCore, Strands | 75 | 30 | 10% |
-| Deployment, Integration & Developer Tools | 76 | 58 | 16% |
-| Observability & Monitoring | 25 | 16 | 5% |
-| Security, Guardrails & Compliance | 88 | 65 | 20% |
-| Cost & Performance Optimization | 50 | 35 | 7% |
-| Evaluation, Testing & Troubleshooting | 54 | 39 | 11% |
+| Category | Questions | Exam-level | Foundations | Weight |
+| --- | --- | --- | --- | --- |
+| Well-Architected GenAI Lens | 37 | 10 | 0 | 3% |
+| Foundation Models: Selection & Inference | 78 | 28 | 0 | 7% |
+| Data Preparation | 59 | 12 | 11 | 5% |
+| RAG, Knowledge Bases & Vector Stores | 94 | 30 | 5 | 6% |
+| Chunking, Embeddings & Retrieval | 61 | 24 | 0 | 6% |
+| Prompt Management & Inference Control | 40 | 12 | 0 | 4% |
+| Agents: Bedrock Agents, AgentCore, Strands | 75 | 30 | 0 | 10% |
+| Deployment, Integration & Developer Tools | 113 | 82 | 13 | 16% |
+| Observability & Monitoring | 30 | 18 | 3 | 5% |
+| Security, Guardrails & Compliance | 125 | 81 | 21 | 20% |
+| Cost & Performance Optimization | 65 | 43 | 7 | 7% |
+| Evaluation, Testing & Troubleshooting | 60 | 45 | 0 | 11% |
 
-Exam-level questions by blueprint domain: Domain 1 — 92, Domain 2 — 88,
-Domain 3 — 65, Domain 4 — 51, Domain 5 — 39. Each is tagged with its real
+Exam-level questions by blueprint domain: Domain 1 — 116, Domain 2 — 112,
+Domain 3 — 81, Domain 4 — 61, Domain 5 — 45. Each is tagged with its real
 task and skill (`task 2.1`, `skill 2.1.3`).
 
 ## Where the questions come from
 
-- **365 written for this pack** from AWS documentation and the exam guide
-  (`source: "generated"` for the 305 added in October 2026; the 60 cost and
+- **505 written for this pack** from AWS documentation and the exam guide
+  (`source: "generated"` for the 445 added in October 2026; the 60 cost and
   evaluation questions added in September 2026 carry the exam guide as
   `sourceRef`).
 - **332 adapted under MIT** from

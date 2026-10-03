@@ -94,6 +94,10 @@
   "levelsLabel": "Tier",
   "levels": [
     {
+      "key": "foundations",
+      "label": "Foundations"
+    },
+    {
       "key": "easy",
       "label": "Easy"
     },
