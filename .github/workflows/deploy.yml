@@ -48,4 +48,8 @@ jobs:
       app: aws-genai-cert-app
       pack: '.'
       engine: ${{ github.event.client_payload.version || 'latest' }}
+      # Anonymous funnel beacon (six events, random device id, off switch in
+      # Settings) -> the sync worker's analytics route. Public by design.
+      analytics_url: https://sync.quizmill.dev/v1/analytics
+      privacy_url: https://quizmill.dev/privacy
     secrets: inherit
