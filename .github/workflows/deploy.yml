@@ -44,8 +44,11 @@ jobs:
     needs: ensure-project
     uses: quizmill/quizmill/.github/workflows/deploy-pack.yml@main
     with:
+      # The Pages project keeps its original name (the custom domain hangs
+      # off it); the app dir follows the manifest id (`<id>-app`, see
+      # `quizmill build`).
       project: aws-genai-cert
-      app: aws-genai-cert-app
+      app: aws-genai-app
       pack: '.'
       engine: ${{ github.event.client_payload.version || 'latest' }}
       # Anonymous funnel beacon (six events, random device id, off switch in
