@@ -98,6 +98,12 @@
       "url": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam"
     },
     {
+      "label": "Original",
+      "name": "quizmill exam-style scenarios",
+      "blurb": "Scenario questions written for this pack in the official exam's style, covering the domains the community bank under-serves: testing and validation, operational efficiency, integration patterns, and governance.",
+      "url": "https://github.com/quizmill/pack-aws-genai"
+    },
+    {
       "label": "AWS",
       "name": "AIP-C01 exam guide",
       "blurb": "Concepts aligned to the official AWS Certified Generative AI Developer - Professional exam guide.",
@@ -108,6 +114,6 @@
     "title": "Get the full bank",
     "url": "https://quizmill.gumroad.com/l/aws-genai",
     "price": "$3",
-    "blurb": "This app is a 30-question sample. The full bank has all 460 questions across the same ten categories and three tiers, as one file you insert at /packs."
+    "blurb": "This app is a 30-question sample. The full bank has all 386 questions across the same ten categories and three tiers, as one file you insert at /packs."
   }
 }
