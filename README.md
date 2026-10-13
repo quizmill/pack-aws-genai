@@ -5,9 +5,10 @@ Practice for the **AWS Certified Generative AI Developer – Professional
 (75 questions, 180 min, pass 750/1000, scaled). This pack is a
 **30-question sample** across foundation-model integration, RAG, agents,
 prompt management, deployment, observability, and security: three questions
-per category, spanning the Easy, Hard and Very hard tiers.
+per category, spanning the Easy, Hard and Very hard tiers, and including ten
+exam-style scenarios written for the pack.
 
-The **full bank — all 460 questions** in the same ten categories and three
+The **full bank — all 386 questions** in the same ten categories and three
 tiers — ships as a separate pack, `aws-genai-full`, as one bundle file you
 insert at `/packs` in the app. The app's upgrade card (on Home, below the
 practice loop, and in Settings → Packs) links to it.
@@ -25,8 +26,21 @@ links. See [`NOTICE.md`](NOTICE.md) for the license and exactly what was
 changed. Options were reordered (upstream always lists the correct answer
 first), per-option explanations were merged into one teaching explanation
 with the source's AWS doc link appended, and **2 items flagged as imprecise
-during review were dropped** (462 → 460). The sample here is drawn from that
-bank unchanged.
+during review were dropped** (462 → 460). A further **141 were removed on
+2026-10-13 as restatements** of other items in the bank (460 → 319): the
+upstream Very hard tier repeated the Hard tier almost item for item, and the
+`easy-off-N` items were condensed copies of the `hard-bp-N` items.
+
+**67 exam-style scenarios** (`source: "original"`, tag `scenario`, ids
+`aws-genai-<tier>-d<domain>-<n>`) were written for the full bank in the
+official exam's form — a multi-constraint scenario, full-sentence options,
+"LEAST operational overhead" / "Select TWO" — and tagged with the official
+domain (`domain-1` … `domain-5`). They concentrate on what the community
+bank barely covers: testing, validation and troubleshooting, operational
+efficiency, integration patterns, and governance. Each one's `sourceRef` is
+the AWS doc page it is grounded in.
+
+The sample here is 30 of those 386, drawn unchanged.
 
 ### Verification
 
@@ -45,47 +59,74 @@ the most faithful mapping — not the official exam domains. Use the **Tier**
 filter (Easy / Hard / Very hard, from the source's three banks) to drill by
 difficulty.
 
-| Category | Sample | Full bank |
+| Category | Sample (Easy / Hard / Very hard) | Full bank (Easy / Hard / Very hard) |
 | --- | --- | --- |
-| Foundation Models: Selection & Inference | 3 | 66 |
-| RAG, Knowledge Bases & Vector Stores | 3 | 69 |
-| Agents (Bedrock Agents, AgentCore, Strands) | 3 | 61 |
-| Data Preparation | 3 | 47 |
-| Security, Guardrails & Compliance | 3 | 47 |
-| Chunking, Embeddings & Retrieval | 3 | 45 |
-| Prompt Management & Inference Control | 3 | 42 |
-| Model Deployment & Developer Tools | 3 | 38 |
-| Well-Architected GenAI Lens | 3 | 29 |
-| Observability & Monitoring | 3 | 16 |
+| Foundation Models: Selection & Inference | 3 (1 / 1 / 1) | 61 (29 / 22 / 10) |
+| RAG, Knowledge Bases & Vector Stores | 3 (1 / 2 / 0) | 57 (33 / 22 / 2) |
+| Agents (Bedrock Agents, AgentCore, Strands) | 3 (1 / 1 / 1) | 53 (32 / 16 / 5) |
+| Data Preparation | 3 (1 / 2 / 0) | 38 (25 / 11 / 2) |
+| Security, Guardrails & Compliance | 3 (0 / 2 / 1) | 37 (0 / 30 / 7) |
+| Prompt Management & Inference Control | 3 (1 / 1 / 1) | 37 (18 / 16 / 3) |
+| Chunking, Embeddings & Retrieval | 3 (1 / 2 / 0) | 35 (22 / 13 / 0) |
+| Model Deployment & Developer Tools | 3 (0 / 2 / 1) | 32 (0 / 28 / 4) |
+| Well-Architected GenAI Lens | 3 (1 / 1 / 1) | 24 (14 / 7 / 3) |
+| Observability & Monitoring | 3 (0 / 2 / 1) | 12 (0 / 11 / 1) |
+
+The Very hard tier is small on purpose: after the restatements were removed
+it holds the 15 upstream items that ask something the Hard tier does not,
+plus 22 of the exam-style scenarios.
 
 ### How the sample was chosen
 
-One question per tier in each category (Observability & Monitoring has no
-Easy-tier items upstream, so its three come from Hard and Very hard),
-preferring the richest explanations — the ones that say why each rejected
-option is wrong and link the AWS doc — and skipping prompts that
-near-duplicate another pick in the same category. Question ids are the full
-bank's own, so the full bank's ids are a superset of the sample's.
+Three questions per category, picked to look like the full bank in
+miniature:
+
+- **Every tier a category has is shown.** Each category with Easy items
+  contributes one (seven of the ten; Security, Deployment and Observability
+  have no Easy tier upstream), and every category with a Very hard item
+  contributes one unless the slot was better spent on a scenario. The sample
+  is 7 Easy, 16 Hard and 7 Very hard; the bank is Easy 173, Hard 176, Very
+  hard 37.
+- **Both kinds of question.** 20 are adapted from the community bank
+  (including six of its exam-style `hard-bp` items) and 10 are the pack's own
+  exam-style scenarios — spread over eight of the ten categories and all five
+  official domains — so the sample shows the scenario form the full bank is
+  written in.
+- **Both answer formats.** Eight of the 30 are "Select TWO".
+- **One concept per question**, across the whole sample, not just within a
+  category: no two of the 30 ask the same scenario with the same key, and
+  the richest explanations — the ones that say why each rejected option is
+  wrong and link the AWS doc — were preferred.
+
+Question ids are the full bank's own, so every id in the sample exists in
+the full bank. The 14 ids the sample held before 2026-10-13 that were
+removed from the bank as restatements (`easy-off-1`, `-3`, `-4`, `-6`,
+`-13`, `-17` and `veryhard-1-3-v3`, `1-4-v1`, `1-5-v10`, `1-6-v6`, `2-1-v2`,
+`2-2-v4`, `2-4-v5`, `3-1-v8`) were swapped out; progress recorded against
+them is simply left behind.
 
 ### Coverage caveat vs. the official blueprint
 
 The real AIP-C01 exam has **five** domains: FM Integration/Data/Compliance
 (31%), Implementation & Integration (26%), AI Safety/Security/Governance
 (20%), Operational Efficiency & Optimization (12%), Testing/Validation/
-Troubleshooting (11%). The bank is heavily weighted to the first three
-themes (RAG, FM selection, agents, security) and **under-represents
-standalone cost/performance optimization and testing/troubleshooting**. It is
-strong drilling material but not a blueprint-balanced mock. For the
+Troubleshooting (11%). The community bank is heavily weighted to the first
+three themes (RAG, FM selection, agents, security) and **under-represents
+standalone cost/performance optimization and testing/troubleshooting**; the
+67 exam-style scenarios were written to narrow exactly that gap (25 of them
+are Domain 4 and 5), but the full bank is still strong drilling material
+rather than a blueprint-balanced mock. For the
 authoritative, blueprint-accurate questions, do the **AWS Skill Builder
 Official Practice Question Set + Official Pretest** — the resource real
 passers rate as closest to the exam.
 
 ## Known limitations
 
-- **Duplication across tiers** inflates the full bank's raw count — some
-  concepts recur almost verbatim at Easy/Hard/Very-hard (e.g. KMS+CloudTrail,
-  Q Developer code transformation). 460 ≠ 460 unique concepts. The sample
-  avoids picking two near-duplicates in one category.
+- **The upstream bank restated itself across tiers** — its Very hard items
+  repeated its Hard items almost verbatim, and `easy-off-N` condensed
+  `hard-bp-N`. Those 141 restatements were removed from the full bank on
+  2026-10-13, so 386 is 386 concepts; what that leaves is a Very hard tier of
+  only 37 items.
 - **Weak distractors in some security questions** make a few "very hard"
   items answerable by elimination.
 
