@@ -77,6 +77,146 @@
     "correctKey": "C"
   },
   {
+    "id": "aws-genai-easy-1-3-19",
+    "categoryKey": "data-preparation",
+    "level": "easy",
+    "difficulty": 2,
+    "prompt": "A team is choosing between Amazon Comprehend and Amazon Macie for handling PII. Which guidance is correct?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Use Comprehend to scan an entire S3 lake for sensitive data classification"
+      },
+      {
+        "key": "B",
+        "text": "Use Comprehend to detect/redact PII in text you process; use Macie to discover/classify sensitive data across S3"
+      },
+      {
+        "key": "C",
+        "text": "Use Macie to redact PII inside chatbot prompts in real time"
+      },
+      {
+        "key": "D",
+        "text": "They are interchangeable for all PII tasks"
+      }
+    ],
+    "explanation": "Comprehend redacts text content; Macie is for S3-wide sensitive-data discovery and posture. Not \"Use Comprehend to scan an entire S3 lake for sensitive da…\": Lake-wide discovery/classification is Macie's role. Not \"Use Macie to redact PII inside chatbot prompts in real time\": Macie is a discovery/classification service for S3, not a real-time text redactor. Not \"They are interchangeable for all PII tasks\": They serve different purposes and are not interchangeable. Read more: https://docs.aws.amazon.com/sagemaker/latest/dg/data-wrangler.html",
+    "source": "curated",
+    "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
+    "reviewStatus": "draft",
+    "tags": [
+      "aip-c01",
+      "task 1.3",
+      "easy"
+    ],
+    "correctKey": "B"
+  },
+  {
+    "id": "aws-genai-easy-1-4-20",
+    "categoryKey": "rag-knowledge-bases",
+    "level": "easy",
+    "difficulty": 2,
+    "prompt": "A diagnostic app stores 50 million image embeddings and runs similarity searches only occasionally, wanting the most cost-effective, serverless option with no infrastructure to manage. Which vector store is best?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Amazon OpenSearch Serverless"
+      },
+      {
+        "key": "B",
+        "text": "Amazon DynamoDB with custom Lambda search"
+      },
+      {
+        "key": "C",
+        "text": "Amazon Aurora PostgreSQL pgvector"
+      },
+      {
+        "key": "D",
+        "text": "Amazon S3 Vectors"
+      }
+    ],
+    "explanation": "S3 Vectors is serverless, scales to billions of vectors, and is cost-optimized for infrequent queries — ideal here. Not \"Amazon OpenSearch Serverless\": OpenSearch Serverless is built for frequent low-latency search; provisioned capacity sits idle for rare queries. Not \"Amazon DynamoDB with custom Lambda search\": DynamoDB has no native vector search; custom logic adds latency and cost. Not \"Amazon Aurora PostgreSQL pgvector\": Aurora requires managing a database instance and is not cost-optimal for infrequent workloads. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+    "source": "curated",
+    "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
+    "reviewStatus": "draft",
+    "tags": [
+      "aip-c01",
+      "task 1.4",
+      "easy"
+    ],
+    "correctKey": "D"
+  },
+  {
+    "id": "aws-genai-easy-1-5-16",
+    "categoryKey": "embeddings-retrieval",
+    "level": "easy",
+    "difficulty": 2,
+    "prompt": "A team is deciding chunk size. What is the typical trade-off between very large and very small chunks?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Smaller chunks always retrieve better in every case"
+      },
+      {
+        "key": "B",
+        "text": "Large chunks preserve context but can dilute relevance and exceed limits; small chunks are precise but may lose surrounding context"
+      },
+      {
+        "key": "C",
+        "text": "Larger chunks always reduce cost"
+      },
+      {
+        "key": "D",
+        "text": "Chunk size has no effect on retrieval quality"
+      }
+    ],
+    "explanation": "Chunk size trades context retention against retrieval precision and token limits. Not \"Smaller chunks always retrieve better in every case\": Too-small chunks can lose needed context. Not \"Larger chunks always reduce cost\": Larger chunks can increase tokens per retrieval and cost. Not \"Chunk size has no effect on retrieval quality\": Chunk size materially affects relevance and context. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/kb-chunking.html",
+    "source": "curated",
+    "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
+    "reviewStatus": "draft",
+    "tags": [
+      "aip-c01",
+      "task 1.5",
+      "easy"
+    ],
+    "correctKey": "B"
+  },
+  {
+    "id": "aws-genai-easy-1-6-6",
+    "categoryKey": "prompt-management",
+    "level": "easy",
+    "difficulty": 2,
+    "prompt": "A team wants more deterministic, focused output from a model for a compliance-sensitive summarization task. Which parameter change is most appropriate?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Lower the temperature toward 0"
+      },
+      {
+        "key": "B",
+        "text": "Raise the temperature near maximum"
+      },
+      {
+        "key": "C",
+        "text": "Add more stop sequences to increase creativity"
+      },
+      {
+        "key": "D",
+        "text": "Increase max_tokens to reduce randomness"
+      }
+    ],
+    "explanation": "Lower temperature reduces randomness, producing more deterministic, focused output. Not \"Raise the temperature near maximum\": High temperature increases randomness, the opposite of deterministic. Not \"Add more stop sequences to increase creativity\": Stop sequences end generation; they do not control creativity. Not \"Increase max_tokens to reduce randomness\": max_tokens affects length, not determinism. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html",
+    "source": "curated",
+    "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
+    "reviewStatus": "draft",
+    "tags": [
+      "aip-c01",
+      "task 1.6",
+      "easy"
+    ],
+    "correctKey": "A"
+  },
+  {
     "id": "aws-genai-easy-2-1-14",
     "categoryKey": "agents",
     "level": "easy",
@@ -115,251 +255,6 @@
     ],
     "correctKeys": [
       "D",
-      "E"
-    ]
-  },
-  {
-    "id": "aws-genai-easy-off-1",
-    "categoryKey": "data-preparation",
-    "level": "easy",
-    "difficulty": 2,
-    "prompt": "An education company built a content generation system on Amazon Bedrock that generates practice questions from a mix of curated and scraped data. Reviewers must verify content credibility, so the company wants to add source lineage. Which combination of steps meets this with the LEAST operational overhead? (Select TWO.)",
-    "options": [
-      {
-        "key": "A",
-        "text": "Use Amazon SageMaker Clarify to explain model predictions"
-      },
-      {
-        "key": "B",
-        "text": "Register the curated and scraped input datasets with AWS Glue Data Catalog"
-      },
-      {
-        "key": "C",
-        "text": "Use AWS CloudTrail to log reviewer feedback actions"
-      },
-      {
-        "key": "D",
-        "text": "Tag FM outputs with metadata from the data source"
-      },
-      {
-        "key": "E",
-        "text": "Enable Amazon Bedrock invocation logging and correlate logs with the data source"
-      }
-    ],
-    "explanation": "The Data Catalog creates a searchable, managed inventory of sources with minimal overhead. Tagging outputs with source metadata gives reviewers direct, automated traceability between generated content and its origin. Not \"Use Amazon SageMaker Clarify to explain model predictions\": Clarify is for explainability/bias, not source lineage. Not \"Use AWS CloudTrail to log reviewer feedback actions\": CloudTrail logs API actions, not content source lineage. Not \"Enable Amazon Bedrock invocation logging and correlate lo…\": Correlating logs to sources requires manual or custom work and does not directly establish lineage. Read more: https://docs.aws.amazon.com/sagemaker/latest/dg/data-wrangler.html",
-    "source": "curated",
-    "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
-    "reviewStatus": "draft",
-    "tags": [
-      "aip-c01",
-      "task 1.3",
-      "easy"
-    ],
-    "correctKeys": [
-      "B",
-      "D"
-    ]
-  },
-  {
-    "id": "aws-genai-easy-off-3",
-    "categoryKey": "security-governance",
-    "level": "easy",
-    "difficulty": 2,
-    "prompt": "A third-party application needs secure authentication to use Amazon Bedrock: integrate the existing IdP, keep audit logs, eliminate long-lived credentials, and provide temporary access. Which TWO solutions meet these requirements? (Select all that apply.)",
-    "options": [
-      {
-        "key": "A",
-        "text": "Create IAM users per employee and rotate keys with Secrets Manager"
-      },
-      {
-        "key": "B",
-        "text": "Use Amazon Cognito with OIDC to authenticate via the IdP and exchange tokens for temporary AWS credentials"
-      },
-      {
-        "key": "C",
-        "text": "Use an API Gateway Lambda authorizer validating against LDAP and issuing JWTs"
-      },
-      {
-        "key": "D",
-        "text": "Deploy AWS IAM Identity Center with SAML federation to the IdP and grant Bedrock via permission sets"
-      },
-      {
-        "key": "E",
-        "text": "Create an IAM role with STS AssumeRole but store IAM user credentials in app config"
-      }
-    ],
-    "explanation": "Cognito OIDC federates the IdP, issues temporary credentials, and audits via CloudTrail. IAM Identity Center with SAML federates the IdP, uses temporary credentials, and logs via CloudTrail. Not \"Create IAM users per employee and rotate keys with Secret…\": IAM users use long-lived keys and do not federate the IdP. Not \"Use an API Gateway Lambda authorizer validating against L…\": Custom LDAP/JWT does not provide temporary AWS credentials or native IdP federation. Not \"Create an IAM role with STS AssumeRole but store IAM user…\": Storing IAM user credentials violates the no-long-lived-credentials requirement. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/security.html",
-    "source": "curated",
-    "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
-    "reviewStatus": "draft",
-    "tags": [
-      "aip-c01",
-      "task 1.x",
-      "easy"
-    ],
-    "correctKeys": [
-      "B",
-      "D"
-    ]
-  },
-  {
-    "id": "aws-genai-easy-off-4",
-    "categoryKey": "embeddings-retrieval",
-    "level": "easy",
-    "difficulty": 2,
-    "prompt": "A Bedrock RAG app retrieves many relevant docs, but the most relevant info often appears lower in results. Which TWO steps improve relevance ranking with MINIMAL operational overhead? (Select TWO.)",
-    "options": [
-      {
-        "key": "A",
-        "text": "Use Knowledge Bases with hybrid search and OpenSearch Serverless to combine vectors with keyword matching"
-      },
-      {
-        "key": "B",
-        "text": "Configure OpenSearch Serverless with Learning to Rank for relevance scoring"
-      },
-      {
-        "key": "C",
-        "text": "Create Aurora PostgreSQL with pgvector and a custom similarity scoring algorithm"
-      },
-      {
-        "key": "D",
-        "text": "Use SageMaker JumpStart FMs with Kendra Intelligent Ranking and custom relevancy algorithms"
-      },
-      {
-        "key": "E",
-        "text": "Use Amazon Bedrock reranker models with Amazon OpenSearch Service to reorder results by semantic relevance"
-      }
-    ],
-    "explanation": "Hybrid search improves retrieval relevance by blending semantic and keyword matching. Bedrock rerankers are purpose-built to reorder results so the most relevant surface first. Not \"Configure OpenSearch Serverless with Learning to Rank for…\": Learning to Rank requires custom trained/maintained models — more overhead. Not \"Create Aurora PostgreSQL with pgvector and a custom simil…\": Custom scoring and DB management add operational overhead. Not \"Use SageMaker JumpStart FMs with Kendra Intelligent Ranki…\": Bedrock built-in reranking is simpler and more integrated than custom ranking. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/kb-chunking.html",
-    "source": "curated",
-    "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
-    "reviewStatus": "draft",
-    "tags": [
-      "aip-c01",
-      "task 1.5",
-      "easy"
-    ],
-    "correctKeys": [
-      "A",
-      "E"
-    ]
-  },
-  {
-    "id": "aws-genai-easy-off-6",
-    "categoryKey": "rag-knowledge-bases",
-    "level": "easy",
-    "difficulty": 2,
-    "prompt": "A diagnostic imaging app must run similarity searches across 50 million images, processed daily but searched infrequently, with a cost-effective, responsive, no-infrastructure solution. Which is MOST cost-effective?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Store vectors in RDS for PostgreSQL with pgvector"
-      },
-      {
-        "key": "B",
-        "text": "Store vectors in Amazon OpenSearch Serverless and use vector search"
-      },
-      {
-        "key": "C",
-        "text": "Use DynamoDB to store vectors and custom similarity logic in Lambda"
-      },
-      {
-        "key": "D",
-        "text": "Create an Amazon S3 vector bucket with vector indexes to store image embeddings and perform similarity searches"
-      }
-    ],
-    "explanation": "S3 Vectors is serverless, scales to billions of vectors, and is cost-optimized for infrequent searches. Not \"Store vectors in RDS for PostgreSQL with pgvector\": RDS requires managing instances and is not cost-effective for infrequent workloads. Not \"Store vectors in Amazon OpenSearch Serverless and use vec…\": OpenSearch Serverless suits frequent low-latency search; provisioned capacity is underused for rare searches. Not \"Use DynamoDB to store vectors and custom similarity logic…\": DynamoDB has no native vector search; custom logic adds latency and cost. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
-    "source": "curated",
-    "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
-    "reviewStatus": "draft",
-    "tags": [
-      "aip-c01",
-      "task 1.4",
-      "easy"
-    ],
-    "correctKey": "D"
-  },
-  {
-    "id": "aws-genai-easy-off-13",
-    "categoryKey": "prompt-management",
-    "level": "easy",
-    "difficulty": 2,
-    "prompt": "A financial company needs Bedrock prompt templates governed via approval workflows and comprehensive logging of all model invocations with 7-year retention. Which TWO steps meet this with MINIMAL overhead? (Select TWO.)",
-    "options": [
-      {
-        "key": "A",
-        "text": "Enable CloudTrail data events for all Bedrock APIs into CloudTrail Lake with 7-year retention"
-      },
-      {
-        "key": "B",
-        "text": "Use EventBridge to capture invocation events to CloudWatch Logs then export to S3 Object Lock"
-      },
-      {
-        "key": "C",
-        "text": "Use Amazon Bedrock Prompt Management with multi-stage approval workflows and IAM multi-party authorization"
-      },
-      {
-        "key": "D",
-        "text": "Enable Bedrock model invocation logging to S3 with S3 Object Lock (compliance mode) for 7 years, with per-business-unit prefixes"
-      },
-      {
-        "key": "E",
-        "text": "Store prompt templates in DynamoDB with item-level permissions for approvals"
-      }
-    ],
-    "explanation": "Prompt Management natively handles versioned templates with multi-stage approvals. Invocation logging plus immutable Object Lock storage meets comprehensive 7-year retention with low overhead. Not \"Enable CloudTrail data events for all Bedrock APIs into C…\": CloudTrail captures API metadata, not full prompt/response content. Not \"Use EventBridge to capture invocation events to CloudWatc…\": Custom pipelines add failure points and do not provide a complete audit trail. Not \"Store prompt templates in DynamoDB with item-level permis…\": Custom approval logic in DynamoDB adds development overhead. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html",
-    "source": "curated",
-    "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
-    "reviewStatus": "draft",
-    "tags": [
-      "aip-c01",
-      "task 1.6",
-      "easy"
-    ],
-    "correctKeys": [
-      "C",
-      "D"
-    ]
-  },
-  {
-    "id": "aws-genai-easy-off-17",
-    "categoryKey": "deployment-devtools",
-    "level": "easy",
-    "difficulty": 2,
-    "prompt": "A DJL-served LLM on 8-GPU instances is underutilized: real max sequence length is 10x smaller than configured, concurrency is low, and the model fits within 4 GPUs. Which TWO steps improve resource utilization? (Select TWO.)",
-    "options": [
-      {
-        "key": "A",
-        "text": "Increase the number of instances and spread requests more evenly"
-      },
-      {
-        "key": "B",
-        "text": "Use tensor parallelism degree 8 to split the model across all GPUs"
-      },
-      {
-        "key": "C",
-        "text": "Use tensor parallelism with a degree of 4 to deploy two model replicas per instance"
-      },
-      {
-        "key": "D",
-        "text": "Enable speculative decoding to reduce per-request latency"
-      },
-      {
-        "key": "E",
-        "text": "Reduce the model's maximum sequence length to allow a higher rolling batch size per GPU"
-      }
-    ],
-    "explanation": "Since the model fits in 4 GPUs, degree 4 packs two replicas across 8 GPUs for full utilization. Freeing memory by lowering max sequence length increases batch size, throughput, and concurrency. Not \"Increase the number of instances and spread requests more…\": This does not raise per-instance concurrency or reduce the memory footprint. Not \"Use tensor parallelism degree 8 to split the model across…\": Degree 8 serves only one replica across 8 GPUs, leaving half idle since the model fits in 4. Not \"Enable speculative decoding to reduce per-request latency\": Speculative decoding improves latency, not utilization. Read more: https://docs.aws.amazon.com/sagemaker/latest/dg/deploy-model.html",
-    "source": "curated",
-    "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
-    "reviewStatus": "draft",
-    "tags": [
-      "aip-c01",
-      "task 2.x",
-      "easy"
-    ],
-    "correctKeys": [
-      "C",
       "E"
     ]
   },
@@ -847,290 +742,377 @@
     "correctKey": "D"
   },
   {
-    "id": "aws-genai-veryhard-1-3-v3",
-    "categoryKey": "data-preparation",
-    "level": "veryhard",
-    "difficulty": 4,
-    "prompt": "A team needs human-labeled instruction/response pairs with a managed workforce option and built-in quality controls (annotation consolidation). Which service is BEST?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Amazon Comprehend custom classification."
-      },
-      {
-        "key": "B",
-        "text": "Raw Amazon Mechanical Turk tasks."
-      },
-      {
-        "key": "C",
-        "text": "Amazon SageMaker Data Wrangler."
-      },
-      {
-        "key": "D",
-        "text": "Amazon SageMaker Ground Truth."
-      }
-    ],
-    "explanation": "Ground Truth provides managed labeling workflows, workforce options, and quality features such as annotation consolidation. Not \"Amazon Comprehend custom classification.\": Comprehend automates classification; it is not a human-labeling service for creating new pairs. Not \"Raw Amazon Mechanical Turk tasks.\": Mechanical Turk supplies a crowd but lacks the managed labeling workflow, templates, and consolidation that Ground Truth adds. Not \"Amazon SageMaker Data Wrangler.\": Data Wrangler transforms tabular data; it does not run human annotation. Read more: https://docs.aws.amazon.com/sagemaker/latest/dg/data-wrangler.html",
-    "source": "curated",
-    "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
-    "reviewStatus": "draft",
-    "tags": [
-      "aip-c01",
-      "task 1.3",
-      "veryhard"
-    ],
-    "correctKey": "D"
-  },
-  {
-    "id": "aws-genai-veryhard-1-4-v1",
+    "id": "aws-genai-hard-d1-1",
     "categoryKey": "rag-knowledge-bases",
-    "level": "veryhard",
+    "level": "hard",
     "difficulty": 4,
-    "prompt": "A Bedrock knowledge base needs a fully managed vector store for HIGH query-per-second, LOW-latency similarity search with no capacity planning. Which option is BEST?",
+    "prompt": "A maritime logistics team is building an Amazon Bedrock knowledge base from vessel maintenance manuals in Amazon S3. Users ask natural-language questions and must be able to narrow retrieval by vessel class, manual revision date, subsystem, and document owner. The team wants to avoid custom ingestion code and keep the attributes associated with each source document.\n\nWhich implementation meets these requirements?",
     "options": [
       {
         "key": "A",
-        "text": "Amazon OpenSearch Serverless."
+        "text": "Create one knowledge base per vessel class, subsystem, and owner combination and pick the right one at query time."
       },
       {
         "key": "B",
-        "text": "Amazon Neptune Analytics."
+        "text": "Write a custom Lambda ingestion pipeline that stores the attributes in DynamoDB and post-filters the retrieved chunks."
       },
       {
         "key": "C",
-        "text": "Amazon Aurora PostgreSQL with pgvector."
+        "text": "Place a metadata sidecar file next to each document in S3, named with the document's file name plus the .metadata.json suffix, containing the attributes; after ingestion, pass a metadata filter in the retrieval configuration of Retrieve or RetrieveAndGenerate calls."
       },
       {
         "key": "D",
-        "text": "Amazon S3 Vectors."
+        "text": "Prepend the attributes as a header line inside each document so they are embedded with the content, and ask the model to ignore results from the wrong vessel class."
       }
     ],
-    "explanation": "OpenSearch Serverless is the natively integrated, auto-scaling managed vector store suited to frequent, low-latency queries without capacity planning. Not \"Amazon Neptune Analytics.\": Neptune Analytics powers GraphRAG over relationships, not general high-QPS vector search. Not \"Amazon Aurora PostgreSQL with pgvector.\": Aurora pgvector is supported but you size and manage the database instance; it is not the auto-scaling serverless choice for high QPS. Not \"Amazon S3 Vectors.\": S3 Vectors optimizes cost for infrequent queries at huge scale, not high-QPS low-latency search. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
-    "source": "curated",
-    "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
+    "explanation": "Bedrock knowledge bases read a per-document metadata JSON sidecar during ingestion and store the attributes with every chunk from that document, so retrieval calls can filter on them without any custom ingestion code. Not \"header line in the document\": the attributes become part of the embedded text and cannot be used as exact filters; asking the model to ignore results is unreliable. Not \"one knowledge base per combination\": a combinatorial explosion of knowledge bases to maintain. Not \"custom Lambda pipeline with post-filtering\": the custom code the team wants to avoid, and post-filtering throws away results after the top-k cut. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html",
+    "source": "original",
+    "sourceRef": "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html",
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.4",
-      "veryhard"
+      "domain-1",
+      "hard",
+      "scenario"
     ],
-    "correctKey": "A"
+    "correctKey": "C"
   },
   {
-    "id": "aws-genai-veryhard-1-5-v10",
-    "categoryKey": "embeddings-retrieval",
-    "level": "veryhard",
+    "id": "aws-genai-hard-d1-5",
+    "categoryKey": "data-preparation",
+    "level": "hard",
     "difficulty": 4,
-    "prompt": "A team wants to raise the overall quality of what their RAG system retrieves and answers. Which TWO techniques are most effective? (Select TWO.)",
+    "prompt": "A clinical operations platform ingests partner trial-site notes as JSON into Amazon S3, normalizes them, and creates embeddings for an Amazon Bedrock RAG application. The JSON contains nested structures, and records that fail completeness and uniqueness checks must be quarantined before the curated dataset is loaded for embedding. Rule pass and fail counts must be published to CloudWatch for alarms, with minimal custom validation code.\n\nWhich validation design BEST meets these requirements?",
     "options": [
       {
         "key": "A",
-        "text": "Choose a chunking strategy (semantic or hierarchical) aligned to the documents' structure."
+        "text": "Run Amazon Macie on the bucket to find incomplete records."
       },
       {
         "key": "B",
-        "text": "Raise the generation temperature for variety."
+        "text": "Add an AWS Glue ETL validation stage that flattens the nested fields, evaluates an AWS Glue Data Quality ruleset written in DQDL for completeness and uniqueness, publishes the rule results as CloudWatch metrics, and writes passing records to the curated prefix and failing records to a quarantine prefix."
       },
       {
         "key": "C",
-        "text": "Add a reranking step to reorder retrieved candidates by relevance."
+        "text": "Send every record to the foundation model and ask it to decide whether the record is complete."
       },
       {
         "key": "D",
-        "text": "Increase maxTokens on the response."
-      },
-      {
-        "key": "E",
-        "text": "Always return only the single top result."
+        "text": "Write a Lambda function with hand-coded checks for each field and log the failures to CloudWatch Logs."
       }
     ],
-    "explanation": "Structure-aligned chunking produces more coherent, relevant chunks and better retrieval. A reranker moves the most relevant passages to the top for generation. Not \"Raise the generation temperature for variety.\": Higher temperature increases randomness and does not improve retrieval quality. Not \"Increase maxTokens on the response.\": Output length does not change which passages are retrieved. Not \"Always return only the single top result.\": Returning just one result can drop relevant passages and reduce answer quality. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/kb-chunking.html",
-    "source": "curated",
-    "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
+    "explanation": "Glue Data Quality evaluates declarative DQDL rules (such as IsComplete and IsUnique) inside a Glue job, can emit per-rule results as CloudWatch metrics, and row-level outcomes let the job route records to curated or quarantine outputs. Not \"hand-coded Lambda checks\": the custom validation code the team wants to minimize, and logs are not metrics. Not \"ask the model\": slow, expensive and non-deterministic for a structural check. Not \"Macie\": it discovers sensitive data; it does not validate completeness or uniqueness. Read more: https://docs.aws.amazon.com/glue/latest/dg/glue-data-quality.html",
+    "source": "original",
+    "sourceRef": "https://docs.aws.amazon.com/glue/latest/dg/glue-data-quality.html",
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.5",
-      "veryhard"
-    ],
-    "correctKeys": [
-      "A",
-      "C"
-    ]
-  },
-  {
-    "id": "aws-genai-veryhard-1-6-v6",
-    "categoryKey": "prompt-management",
-    "level": "veryhard",
-    "difficulty": 4,
-    "prompt": "A developer needs a MANAGED, low-code way to build and version a multi-step generative workflow with branching (classify, then retrieve, then generate). Which Amazon Bedrock feature is BEST?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Hand-built AWS Step Functions wiring each step."
-      },
-      {
-        "key": "B",
-        "text": "Amazon Bedrock Agents."
-      },
-      {
-        "key": "C",
-        "text": "A single InvokeModel call."
-      },
-      {
-        "key": "D",
-        "text": "Amazon Bedrock Flows (prompt flows)."
-      }
-    ],
-    "explanation": "Bedrock Flows visually build and version multi-step, branching workflows chaining prompts, knowledge bases, and other components with little code. Not \"Hand-built AWS Step Functions wiring each step.\": Step Functions can orchestrate but require more custom build than a managed flow builder. Not \"Amazon Bedrock Agents.\": Agents provide autonomous tool-using reasoning, which is heavier and different from a defined, branching prompt-chain workflow. Not \"A single InvokeModel call.\": One call cannot orchestrate a multi-step, branching workflow. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html",
-    "source": "curated",
-    "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
-    "reviewStatus": "draft",
-    "tags": [
-      "aip-c01",
-      "task 1.6",
-      "veryhard"
-    ],
-    "correctKey": "D"
-  },
-  {
-    "id": "aws-genai-veryhard-2-1-v2",
-    "categoryKey": "agents",
-    "level": "veryhard",
-    "difficulty": 4,
-    "prompt": "For compliance, the company's OWN application must execute tool calls, while the agent still decides which action to take. Which capability supports this?",
-    "options": [
-      {
-        "key": "A",
-        "text": "Configure the action group to return control to the caller, which executes the action and returns the result."
-      },
-      {
-        "key": "B",
-        "text": "Use an action group with a Lambda the agent invokes directly."
-      },
-      {
-        "key": "C",
-        "text": "Disable the agent's reasoning."
-      },
-      {
-        "key": "D",
-        "text": "Associate a knowledge base."
-      }
-    ],
-    "explanation": "Return of control hands the chosen action and parameters back to the calling application to execute, rather than the agent invoking a Lambda. Not \"Use an action group with a Lambda the agent invokes direc…\": With a Lambda action group the agent executes the action, which is exactly what the compliance rule forbids. Not \"Disable the agent's reasoning.\": That would remove the agent's ability to decide which action to take. Not \"Associate a knowledge base.\": A knowledge base is for retrieval, not for delegating execution to the caller. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html",
-    "source": "curated",
-    "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
-    "reviewStatus": "draft",
-    "tags": [
-      "aip-c01",
-      "task 2.1",
-      "veryhard"
-    ],
-    "correctKey": "A"
-  },
-  {
-    "id": "aws-genai-veryhard-2-2-v4",
-    "categoryKey": "deployment-devtools",
-    "level": "veryhard",
-    "difficulty": 4,
-    "prompt": "A team deploys several large language models to GPU instances and wants to pack multiple models/copies onto shared accelerators, scale each independently, and scale unused ones to ZERO. Which capability fits?",
-    "options": [
-      {
-        "key": "A",
-        "text": "SageMaker inference components."
-      },
-      {
-        "key": "B",
-        "text": "Serverless Inference."
-      },
-      {
-        "key": "C",
-        "text": "One real-time endpoint per model."
-      },
-      {
-        "key": "D",
-        "text": "A multi-model endpoint (MME)."
-      }
-    ],
-    "explanation": "Inference components place multiple models/copies on shared instances, allocate resources per component, scale independently, and can scale to zero. Not \"Serverless Inference.\": Serverless does not support the GPUs these LLMs need. Not \"One real-time endpoint per model.\": Separate endpoints cannot pack models onto shared accelerators with independent scaling. Not \"A multi-model endpoint (MME).\": MME loads many (typically smaller) models on demand behind one endpoint but is not designed for GPU-packing LLMs with independent per-model scaling and scale-to-zero. Read more: https://docs.aws.amazon.com/sagemaker/latest/dg/deploy-model.html",
-    "source": "curated",
-    "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
-    "reviewStatus": "draft",
-    "tags": [
-      "aip-c01",
-      "task 2.2",
-      "veryhard"
-    ],
-    "correctKey": "A"
-  },
-  {
-    "id": "aws-genai-veryhard-2-4-v5",
-    "categoryKey": "observability",
-    "level": "veryhard",
-    "difficulty": 4,
-    "prompt": "Invocation logs are stored in CloudWatch Logs, and an engineer must interactively query them to find and aggregate error patterns. Which tool is BEST?",
-    "options": [
-      {
-        "key": "A",
-        "text": "AWS CloudTrail Lake."
-      },
-      {
-        "key": "B",
-        "text": "Amazon CloudWatch Logs Insights."
-      },
-      {
-        "key": "C",
-        "text": "Amazon Athena with no setup."
-      },
-      {
-        "key": "D",
-        "text": "Amazon QuickSight Q."
-      }
-    ],
-    "explanation": "Logs Insights provides an interactive query language to search and aggregate the CloudWatch log data. Not \"AWS CloudTrail Lake.\": CloudTrail Lake queries CloudTrail API events, not arbitrary invocation logs already in CloudWatch Logs. Not \"Amazon Athena with no setup.\": Athena would require exporting and cataloging the data first; Logs Insights queries the logs directly. Not \"Amazon QuickSight Q.\": QuickSight Q answers over prepared BI datasets, not ad hoc CloudWatch log querying. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html",
-    "source": "curated",
-    "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
-    "reviewStatus": "draft",
-    "tags": [
-      "aip-c01",
-      "task 2.4",
-      "veryhard"
+      "domain-1",
+      "hard",
+      "scenario"
     ],
     "correctKey": "B"
   },
   {
-    "id": "aws-genai-veryhard-3-1-v8",
-    "categoryKey": "security-governance",
+    "id": "aws-genai-veryhard-d2-2",
+    "categoryKey": "agents",
     "level": "veryhard",
     "difficulty": 4,
-    "prompt": "A compliance team must ensure customer prompts are processed only within an approved Region and are NOT used to train the base models. Which statement and action are correct?",
+    "prompt": "A utility's grid reliability team is building an Amazon Bedrock based assistant that recommends restoration actions during outages. Each request can go through several plan, tool-call, and revise cycles; the tools are Lambda functions that read operational APIs. Safety reviewers require the workflow to stop after a fixed maximum number of cycles or after a high-risk tool result, to prevent the model path from reaching anything except approved read-only APIs, and to stop calling an unhealthy API for several minutes after consecutive failures. Auditors must be able to review every step.\n\nWhich design meets these requirements?",
     "options": [
       {
         "key": "A",
-        "text": "Accept that data may be processed globally."
+        "text": "Build a Standard AWS Step Functions workflow that tracks the cycle count and risk flags with Choice and Fail states, invokes the Lambda tool adapters with timeouts, stores circuit-breaker state with a TTL in DynamoDB that the workflow checks before each call, and gives each adapter a least-privilege IAM role scoped to its read API."
       },
       {
         "key": "B",
-        "text": "Self-host the model, since only that prevents base-model training on your data."
+        "text": "Let a Strands agent run the loop in a single Lambda function with no step limit, relying on the model to decide when to stop and on Lambda's timeout as the safety net."
       },
       {
         "key": "C",
-        "text": "Use Bedrock in the approved Region; it processes the data in that Region and does not use your prompts/outputs to train the base models."
+        "text": "Use an Amazon Bedrock agent with one action group whose Lambda role has full access to the operational APIs so any needed call can be made."
       },
       {
         "key": "D",
-        "text": "File a support ticket to opt out, or your data trains the models by default."
+        "text": "Run the loop in an Amazon ECS task that retries failed APIs immediately until they recover."
       }
     ],
-    "explanation": "Bedrock keeps inference data in the Region you call and does not use customer inputs/outputs to train base models. Not \"Accept that data may be processed globally.\": Inference data is processed in the Region you invoke, not globally. Not \"Self-host the model, since only that prevents base-model …\": Using Bedrock already prevents your data from training base models; self-hosting is unnecessary for that guarantee. Not \"File a support ticket to opt out, or your data trains the…\": No opt-out is required; Bedrock does not use your data to train base models. Read more: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html",
-    "source": "curated",
-    "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
+    "explanation": "Step Functions gives an explicit, auditable execution history with deterministic loop control (a counter with Choice states and a Fail state for unsafe outcomes), native timeouts and retries, and a place to check a DynamoDB circuit-breaker flag before each tool call; per-adapter IAM roles enforce the read-only boundary. Not \"Strands with no step limit\": the model deciding when to stop does not satisfy a hard maximum, and Lambda's timeout is not a safety control. Not \"full-access action group\": violates least privilege and the read-only requirement. Not \"ECS retrying immediately\": hammering an unhealthy API is the opposite of a cooldown. Read more: https://docs.aws.amazon.com/step-functions/latest/dg/connect-bedrock.html",
+    "source": "original",
+    "sourceRef": "https://docs.aws.amazon.com/step-functions/latest/dg/connect-bedrock.html",
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 3.1",
-      "veryhard"
+      "domain-2",
+      "veryhard",
+      "scenario"
+    ],
+    "correctKey": "A"
+  },
+  {
+    "id": "aws-genai-hard-d2-8",
+    "categoryKey": "deployment-devtools",
+    "level": "hard",
+    "difficulty": 4,
+    "prompt": "A browser-based writing coach calls a Lambda function that invokes Amazon Bedrock synchronously, so students wait for the whole answer before seeing any feedback. The browser client already supports server-sent events, and the team does not want to adopt a WebSocket protocol. The solution must reduce time to first byte and stream partial model output as it is generated.\n\nWhich implementation meets these requirements?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Keep the synchronous call but lower maxTokens so the full answer arrives sooner."
+      },
+      {
+        "key": "B",
+        "text": "Have the browser poll a DynamoDB-backed endpoint every second for partial output written by the function."
+      },
+      {
+        "key": "C",
+        "text": "Invoke the model with ConverseStream in the function, buffer all chunks, and return the concatenated text when the stream ends."
+      },
+      {
+        "key": "D",
+        "text": "Enable Lambda response streaming for the function (RESPONSE_STREAM invoke mode on a function URL or a streaming-capable HTTP front end), call ConverseStream, and write a server-sent event for each content delta as it arrives."
+      }
+    ],
+    "explanation": "Lambda response streaming lets the function write bytes to the client progressively, so each ConverseStream delta can be flushed as an SSE frame and the first tokens reach the browser almost immediately. Not \"lower maxTokens\": a shorter answer is still delivered all at once, and it truncates feedback. Not \"buffer the stream\": consuming ConverseStream but returning only at the end gives the client nothing until completion. Not \"poll DynamoDB\": adds latency, cost and complexity compared with a streamed response. Read more: https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html",
+    "source": "original",
+    "sourceRef": "https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html",
+    "reviewStatus": "draft",
+    "tags": [
+      "aip-c01",
+      "domain-2",
+      "hard",
+      "scenario"
+    ],
+    "correctKey": "D"
+  },
+  {
+    "id": "aws-genai-veryhard-d2-11",
+    "categoryKey": "deployment-devtools",
+    "level": "veryhard",
+    "difficulty": 4,
+    "prompt": "A biomedical imaging vendor is deploying a 70 GB open-weight LLM from Amazon S3 to an Amazon SageMaker AI real-time endpoint for interactive report drafting. Endpoint creation repeatedly fails because downloading the artifact and passing the container startup health check take too long, and the chosen GPU instance's local storage is too small for the full artifact. The team also wants a serving stack designed for LLM memory use and token throughput.\n\nWhich deployment configuration meets these requirements?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Switch to SageMaker Serverless Inference so that no instance storage is needed."
+      },
+      {
+        "key": "B",
+        "text": "Deploy with a SageMaker Large Model Inference (LMI) container. Point the model at the uncompressed S3 prefix through ModelDataSource with compression type None, and on the production variant set VolumeSizeInGB, ModelDataDownloadTimeoutInSeconds, and ContainerStartupHealthCheckTimeoutInSeconds large enough for the artifact."
+      },
+      {
+        "key": "C",
+        "text": "Deploy with a generic scikit-learn container and increase the instance count to spread the download across instances."
+      },
+      {
+        "key": "D",
+        "text": "Compress the weights into a single model.tar.gz, keep the default timeouts, and retry endpoint creation until it succeeds."
+      }
+    ],
+    "explanation": "The LMI container is built for LLM serving (tensor parallelism, paged attention, continuous batching); an uncompressed model data source avoids a long tar extraction, VolumeSizeInGB provides enough attached storage, and the download and health-check timeouts stop SageMaker declaring the container unhealthy while 70 GB of weights load. Not \"single tar.gz and retry\": extraction of a huge tarball makes startup slower and the timeouts still trip. Not \"Serverless Inference\": it does not support GPU instances, which an LLM of this size needs. Not \"scikit-learn container with more instances\": each instance still downloads the whole model, and the container cannot serve an LLM efficiently. Read more: https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference.html",
+    "source": "original",
+    "sourceRef": "https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference.html",
+    "reviewStatus": "draft",
+    "tags": [
+      "aip-c01",
+      "domain-2",
+      "veryhard",
+      "scenario"
+    ],
+    "correctKey": "B"
+  },
+  {
+    "id": "aws-genai-veryhard-d3-1",
+    "categoryKey": "security-governance",
+    "level": "veryhard",
+    "difficulty": 4,
+    "prompt": "A digital bank's customer-facing assistant on Amazon Bedrock has failed red-team testing: harmful language appeared in both prompts and responses, and testers attempted jailbreaks and prompt leakage. Compliance requires blocking harmful content when the guardrail classifies it as medium or high confidence while allowing low-confidence matches to limit false positives, observing prompt-attack detections for 30 days before changing user-visible behaviour, and anonymizing PII in responses.\n\nWhich guardrail configuration meets these requirements?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Create a guardrail with every content filter at high strength, the prompt attack filter blocking, and PII set to block, so that nothing harmful can get through."
+      },
+      {
+        "key": "B",
+        "text": "Rely on Amazon Comprehend toxicity detection in a Lambda function and skip Bedrock Guardrails to avoid added latency."
+      },
+      {
+        "key": "C",
+        "text": "Create an Amazon Bedrock guardrail with the hate, insults, sexual, violence, and misconduct content filters set to medium strength for both prompts and responses, the prompt attack filter set to detect rather than block, and the sensitive information filter set to mask PII in responses."
+      },
+      {
+        "key": "D",
+        "text": "Add a denied topic called \"harmful content\" and a word filter for known jailbreak phrases, and leave PII handling to the model's system prompt."
+      }
+    ],
+    "explanation": "Content filter strength controls which confidence levels are blocked: medium strength blocks medium and high confidence classifications and lets low confidence through. The prompt attack filter can be set to detect, which records detections without intervening, giving the 30-day observation window, and the sensitive information filter's mask action anonymizes PII in text responses. Not \"everything at high and blocking\": high strength blocks low-confidence matches too (more false positives), and blocking prompt attacks changes user-visible behaviour immediately. Not \"denied topic and word list\": denied topics are for subjects, not toxicity categories, and a phrase list does not catch novel jailbreaks or mask PII. Not \"Comprehend only\": it covers toxicity but not prompt attacks, response filtering or PII masking in one place. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-content-filters.html",
+    "source": "original",
+    "sourceRef": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-content-filters.html",
+    "reviewStatus": "draft",
+    "tags": [
+      "aip-c01",
+      "domain-3",
+      "veryhard",
+      "scenario"
     ],
     "correctKey": "C"
+  },
+  {
+    "id": "aws-genai-hard-d3-6",
+    "categoryKey": "security-governance",
+    "level": "hard",
+    "difficulty": 4,
+    "prompt": "A financial services firm wants its developers to build proof-of-concept applications that call Amazon Bedrock from local Python scripts. The firm uses Okta for workforce identity and requires single sign-on with short-lived credentials and no long-term access keys. Developers must be able to run inference against approved foundation models but must not be able to manage models, agents, or knowledge bases.\n\nWhich solution provides the MOST secure, least-privilege access?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Create one IAM user per developer with an access key and attach the AmazonBedrockFullAccess managed policy."
+      },
+      {
+        "key": "B",
+        "text": "Create a shared IAM role with full Bedrock access and distribute its long-lived credentials through a password manager."
+      },
+      {
+        "key": "C",
+        "text": "Connect AWS IAM Identity Center to Okta as the identity provider. Create a permission set for the developer group with a custom policy that allows only Bedrock Runtime actions such as InvokeModel and Converse on the approved model ARNs, and have developers obtain temporary credentials through Identity Center for the AWS SDK."
+      },
+      {
+        "key": "D",
+        "text": "Use Amazon Cognito user pools for the developers and attach a policy that allows all Bedrock actions."
+      }
+    ],
+    "explanation": "Identity Center federates with Okta, issues short-lived credentials for CLI and SDK sessions, and its permission sets carry a least-privilege policy that can be scoped to runtime invoke actions on specific model ARNs, leaving control-plane actions out. Not \"IAM users with access keys\": long-term credentials, and full access violates least privilege. Not \"shared role with distributed credentials\": shared long-lived secrets are the opposite of the requirement. Not \"Cognito with all actions\": Cognito is for application end users rather than workforce SSO, and the policy is over-broad. Read more: https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html",
+    "source": "original",
+    "sourceRef": "https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html",
+    "reviewStatus": "draft",
+    "tags": [
+      "aip-c01",
+      "domain-3",
+      "hard",
+      "scenario"
+    ],
+    "correctKey": "C"
+  },
+  {
+    "id": "aws-genai-veryhard-d4-8",
+    "categoryKey": "prompt-management",
+    "level": "veryhard",
+    "difficulty": 4,
+    "prompt": "A SaaS support chat application uses the Amazon Bedrock Converse API with one foundation model. It stores the full conversation history in Amazon DynamoDB and uses an Amazon Bedrock knowledge base for RAG. As usage grows, Bedrock spend rises sharply and some requests fail because the prompt exceeds the model's context window. The company wants to reduce token-related cost while preserving answer quality.\n\nWhich combination of actions meets these requirements? (Select TWO.)",
+    "options": [
+      {
+        "key": "A",
+        "text": "Increase the knowledge base's number of retrieved results so the model has more context and answers in fewer turns."
+      },
+      {
+        "key": "B",
+        "text": "Store the conversation in Amazon S3 instead of DynamoDB to lower the per-request cost."
+      },
+      {
+        "key": "C",
+        "text": "Use a smaller, cheaper model to summarize older conversation turns into a running summary stored in DynamoDB, send only the summary plus the most recent turns, and cap the response with maxTokens."
+      },
+      {
+        "key": "D",
+        "text": "Before each invocation, call CountTokens to measure the planned request; when it exceeds a budget, prune older turns and reduce the number of retrieved chunks, and publish input and output token counts to CloudWatch."
+      },
+      {
+        "key": "E",
+        "text": "Switch to a model with a larger context window and send the entire history and all retrieved chunks on every request."
+      }
+    ],
+    "explanation": "Token cost is driven by what is sent to the model; measuring the request with CountTokens and trimming history and retrieved chunks to a budget, and compressing old turns into a short summary with a cheap model, both cut input tokens while keeping the relevant context. Not \"larger context window and send everything\": it removes the failure but raises cost further, which is the opposite of the goal. Not \"S3 instead of DynamoDB\": storage location does not change model tokens. Not \"more retrieved results\": more chunks means more input tokens per request. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference.html",
+    "source": "original",
+    "sourceRef": "https://docs.aws.amazon.com/bedrock/latest/userguide/count-tokens.html",
+    "reviewStatus": "draft",
+    "tags": [
+      "aip-c01",
+      "domain-4",
+      "veryhard",
+      "scenario"
+    ],
+    "correctKeys": [
+      "C",
+      "D"
+    ]
+  },
+  {
+    "id": "aws-genai-hard-d5-3",
+    "categoryKey": "embeddings-retrieval",
+    "level": "hard",
+    "difficulty": 4,
+    "prompt": "An insurance underwriting team is tuning the chunking and retrieval settings of an Amazon Bedrock knowledge base before wiring the retrieved content to a foundation model. The team needs a repeatable prerelease test that scores only the retrieval step against ground-truth answers written by subject matter experts, and wants request-level latency troubleshooting for the retrieval path without adding timing code to the application.\n\nWhich approach meets these requirements?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Run a retrieve-and-generate evaluation job and judge the final answers, then infer retrieval quality from the answer scores."
+      },
+      {
+        "key": "B",
+        "text": "Enable Amazon Bedrock model invocation logging and review the logged prompts to see whether the right passages were included."
+      },
+      {
+        "key": "C",
+        "text": "Add a Lambda function that times every Retrieve call and writes the duration to Amazon DynamoDB, and compare the top result with the expected answer by string match."
+      },
+      {
+        "key": "D",
+        "text": "Build a JSONL prompt dataset in Amazon S3 whose records contain the prompt and reference responses. Run a retrieve-only RAG evaluation job in Amazon Bedrock with context relevance and context coverage metrics, and use AWS X-Ray traces to analyze Retrieve latency."
+      }
+    ],
+    "explanation": "Bedrock RAG evaluation jobs can be run in retrieve-only mode, where an evaluator model scores the retrieved contexts against the reference responses using metrics such as context relevance and context coverage, isolating the retriever from the generator. X-Ray traces the Retrieve calls made through the AWS SDK so per-request latency is visible without custom timers. Not \"retrieve-and-generate evaluation\": answer quality mixes retrieval and generation effects, so it does not test the retrieval step on its own. Not \"Lambda timers and string match\": custom timing code is exactly what the team wants to avoid, and string matching is a poor proxy for retrieval relevance. Not \"invocation logging\": logs show what was sent to the model, but they do not score retrieval or expose retrieval latency. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-kb.html",
+    "source": "original",
+    "sourceRef": "https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-kb.html",
+    "reviewStatus": "draft",
+    "tags": [
+      "aip-c01",
+      "domain-5",
+      "hard",
+      "scenario"
+    ],
+    "correctKey": "D"
+  },
+  {
+    "id": "aws-genai-veryhard-d5-15",
+    "categoryKey": "observability",
+    "level": "veryhard",
+    "difficulty": 4,
+    "prompt": "A telemedicine note-drafting service runs behind an Amazon API Gateway REST API; a Lambda function calls the Amazon Bedrock Converse API and currently logs only unstructured error strings. Support engineers spend hours correlating reports of wrong output, validation exceptions, and latency spikes. The team must improve triage across prompt versions, model invocations, and API hops, must not store raw patient data in logs, and must not introduce a separate observability data store.\n\nWhich TWO actions meet these requirements? (Select TWO.)",
+    "options": [
+      {
+        "key": "A",
+        "text": "Enable Amazon Bedrock model invocation logging with full prompt and response bodies to CloudWatch Logs so every exchange is preserved for triage."
+      },
+      {
+        "key": "B",
+        "text": "Increase the Lambda log retention to ten years so that older incidents can be reviewed."
+      },
+      {
+        "key": "C",
+        "text": "Emit structured JSON logs from the function with a correlation ID, prompt version, model ID, sanitized prompt and response attributes, latency, and validation outcome, and query them with CloudWatch Logs Insights."
+      },
+      {
+        "key": "D",
+        "text": "Enable AWS X-Ray tracing on API Gateway and the Lambda function, instrument the AWS SDK client so Bedrock calls appear as subsegments, and include the trace ID in the application logs."
+      },
+      {
+        "key": "E",
+        "text": "Ship all logs to a self-managed OpenSearch cluster and build Kibana dashboards for the support team."
+      }
+    ],
+    "explanation": "X-Ray stitches API Gateway, Lambda and the downstream Bedrock call into one trace so latency can be attributed to a hop, and structured logs with a correlation ID, prompt version and model ID make Logs Insights queries answer \"which version produced the bad output\" without a new data store. Not \"invocation logging with full bodies\": it would store raw patient data in logs, which the requirement forbids. Not \"self-managed OpenSearch\": that is the separate observability store the team must avoid. Not \"ten-year retention\": retention does not improve correlation or triage. Read more: https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html",
+    "source": "original",
+    "sourceRef": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html",
+    "reviewStatus": "draft",
+    "tags": [
+      "aip-c01",
+      "domain-5",
+      "veryhard",
+      "scenario"
+    ],
+    "correctKeys": [
+      "C",
+      "D"
+    ]
   }
 ]

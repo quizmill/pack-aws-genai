@@ -15,7 +15,11 @@ reordered (the upstream bank lists the correct option first), the per-option
 explanations were combined into a single teaching explanation with the
 upstream AWS doc link appended, the upstream `task` taxonomy was grouped into
 this pack's categories, and the three difficulty banks became the `Tier`
-levels. Two items flagged as imprecise during review were removed.
+levels. Two items flagged as imprecise during review were removed, and on
+2026-10-13 a further 141 were removed from the full bank because they
+restated other items in it (the Very hard copies of Hard items, and the
+condensed `easy-off` copies of the `hard-bp` items); this sample is drawn
+from what remains.
 
 The upstream MIT license, reproduced in full as required:
 
@@ -42,6 +46,14 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+## Original questions
+
+Questions with `source: "original"` (ids `aws-genai-<tier>-d<domain>-<n>`,
+tag `scenario`) were written for this pack and are not derived from the work
+above or from any third-party practice exam. They are grounded in the public
+AWS documentation page named in each question's `sourceRef`; the AWS docs are
+cited, not reproduced.
 
 ## Not included
 
