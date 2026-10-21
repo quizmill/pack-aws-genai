@@ -19,7 +19,9 @@ levels. Two items flagged as imprecise during review were removed, and on
 2026-10-13 a further 141 were removed from the full bank because they
 restated other items in it (the Very hard copies of Hard items, and the
 condensed `easy-off` copies of the `hard-bp` items); this sample is drawn
-from what remains.
+from what remains. On 2026-10-21 the per-option verdicts were moved back
+onto each option (its `explanation` field), leaving the lead reasoning and
+the doc link in the question explanation.
 
 The upstream MIT license, reproduced in full as required:
 
