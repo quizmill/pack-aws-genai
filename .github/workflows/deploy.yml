@@ -20,10 +20,14 @@ on:
       - 'scenarios.json'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
-  # Engine releases fan out a dispatch carrying the just-published version
-  # so the app rebuilds on the new engine without waiting for the daily cron.
+  # Engine releases fan out a dispatch (event type `engine-update`, the name
+  # release.yml in quizmill/quizmill sends; this repo must also be listed in
+  # the engine's PACK_DISPATCH_REPOS variable) so the app rebuilds on the new
+  # engine without waiting for the daily cron.
   repository_dispatch:
-    types: [engine-release]
+    types: [engine-update]
+  schedule:
+    - cron: '17 6 * * *' # 06:17 UTC daily, same as the other pack apps
 
 jobs:
   # Create the Cloudflare Pages project on first run — `wrangler pages
