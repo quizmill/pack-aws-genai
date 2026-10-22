@@ -9,9 +9,17 @@ per category, spanning the Easy, Hard and Very hard tiers, and including ten
 exam-style scenarios written for the pack.
 
 The **full bank — all 386 questions** in the same ten categories and three
-tiers — ships as a separate pack, `aws-genai-full`, as one bundle file you
-insert at `/packs` in the app. The app's upgrade card (on Home, below the
-practice loop, and in Settings → Packs) links to it.
+tiers — ships as a separate pack, `aws-genai-full`. The app's upgrade card
+(on Home, below the practice loop, and in Settings → Packs) links to it, and
+the manifest names it (`upgrade.packId`, with `upgrade.unlockUrl` as the
+service) so a licence key for it unlocks the full bank **in place**: paste
+the key under **Packs → Have a licence key?**, or open the `/unlock#key=…`
+link you were sent, and the full bank becomes the active pack next to the
+sample — no file involved, and progress is kept per pack. A key for any
+other pack is refused with the service's own words. The fallback still
+works: insert the full bank's bundle file at `/packs` and tap **Make
+active**. Engines older than the release that added the key entry ignore
+the two fields and show the card alone.
 
 > **Unofficial.** Not affiliated with or endorsed by AWS. This is community
 > study material — treat every question as `draft` and cross-check against
