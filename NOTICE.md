@@ -21,7 +21,10 @@ restated other items in it (the Very hard copies of Hard items, and the
 condensed `easy-off` copies of the `hard-bp` items); this sample is drawn
 from what remains. On 2026-10-21 the per-option verdicts were moved back
 onto each option (its `explanation` field), leaving the lead reasoning and
-the doc link in the question explanation.
+the doc link in the question explanation. On 2026-10-22 the upstream `bp-N`
+items were removed from this sample (see the correction under "Not
+included"), and three questions were corrected against current AWS
+documentation.
 
 The upstream MIT license, reproduced in full as required:
 
@@ -63,3 +66,12 @@ No AWS-copyrighted material is included in this pack. AWS Skill Builder's
 official practice questions, the Official Pretest, and any commercial
 question banks are proprietary and are **not** redistributed here. Study
 those directly on AWS Skill Builder — they are the authoritative source.
+
+**Correction (2026-10-22):** until this date the sample contained six
+questions (`aws-genai-hard-bp-4`, `-9`, `-11`, `-12`, `-16`, `-20`) that the
+upstream repository had taken from the AWS Skill Builder Official Practice
+Question Set (its `bp-N` items; the upstream study-aids sheet names the
+source). The upstream MIT licence cannot cover that text, so the six were
+removed and replaced with questions written for this pack. They remain in
+this repository's git history and in app builds deployed before this date;
+history has not been rewritten.

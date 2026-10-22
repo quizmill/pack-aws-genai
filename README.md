@@ -33,7 +33,11 @@ upstream Very hard tier repeated the Hard tier almost item for item, and the
 Since 2026-10-21 the per-option verdicts (why each rejected option is
 wrong) sit on the option itself, as its `explanation`, and show under it
 once the answer is checked; the question explanation keeps the lead
-reasoning and the AWS doc link.
+reasoning and the AWS doc link. On 2026-10-22 the **six `hard-bp-*` items
+were removed**: upstream's `bp-N` questions are its copy of the AWS Skill
+Builder Official Practice Question Set, which its MIT licence cannot cover
+(see [`NOTICE.md`](NOTICE.md)); each slot went to one of the pack's own
+scenarios in the same category.
 
 **67 exam-style scenarios** (`source: "original"`, tag `scenario`, ids
 `aws-genai-<tier>-d<domain>-<n>`) were written for the full bank in the
@@ -44,7 +48,10 @@ bank barely covers: testing, validation and troubleshooting, operational
 efficiency, integration patterns, and governance. Each one's `sourceRef` is
 the AWS doc page it is grounded in.
 
-The sample here is 30 of those 386, drawn unchanged.
+The sample here is 30 of those 386, drawn by id. Three of them
+(`easy-1-4-20`, `easy-2-1-14`, `veryhard-1-1-v1`) carry corrections made on
+2026-10-22 against current AWS documentation (DynamoDB vector search, the
+`agentcore` CLI, Provisioned Throughput's supported-model list).
 
 ### Verification
 
@@ -91,12 +98,12 @@ miniature:
   contributes one unless the slot was better spent on a scenario. The sample
   is 7 Easy, 16 Hard and 7 Very hard; the bank is Easy 173, Hard 176, Very
   hard 37.
-- **Both kinds of question.** 20 are adapted from the community bank
-  (including six of its exam-style `hard-bp` items) and 10 are the pack's own
-  exam-style scenarios — spread over eight of the ten categories and all five
-  official domains — so the sample shows the scenario form the full bank is
-  written in.
-- **Both answer formats.** Eight of the 30 are "Select TWO".
+- **Both kinds of question.** 14 are adapted from the community bank and 16
+  are the pack's own exam-style scenarios — spread over nine of the ten
+  categories and all five official domains — so the sample shows the
+  scenario form the full bank is written in. (Until 2026-10-22 the split was
+  20 / 10, the 20 including six of upstream's `hard-bp` items; see below.)
+- **Both answer formats.** Six of the 30 are "Select TWO".
 - **One concept per question**, across the whole sample, not just within a
   category: no two of the 30 ask the same scenario with the same key, and
   the richest explanations — the ones that say why each rejected option is
@@ -107,7 +114,12 @@ the full bank. The 14 ids the sample held before 2026-10-13 that were
 removed from the bank as restatements (`easy-off-1`, `-3`, `-4`, `-6`,
 `-13`, `-17` and `veryhard-1-3-v3`, `1-4-v1`, `1-5-v10`, `1-6-v6`, `2-1-v2`,
 `2-2-v4`, `2-4-v5`, `3-1-v8`) were swapped out; progress recorded against
-them is simply left behind.
+them is simply left behind. On 2026-10-22 six more went the same way, this
+time for provenance: `hard-bp-4`, `-9`, `-11`, `-12`, `-16` and `-20` are
+upstream's copies of the official practice set and are not ours to
+redistribute. Their slots went to `hard-d1-7`, `hard-d1-3`, `hard-d3-9`,
+`hard-d5-10`, `hard-d2-10` and `hard-d5-8` — same category, same tier, each
+a scenario written for this pack.
 
 ### Coverage caveat vs. the official blueprint
 
