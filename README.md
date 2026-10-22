@@ -30,6 +30,10 @@ during review were dropped** (462 → 460). A further **141 were removed on
 2026-10-13 as restatements** of other items in the bank (460 → 319): the
 upstream Very hard tier repeated the Hard tier almost item for item, and the
 `easy-off-N` items were condensed copies of the `hard-bp-N` items.
+Since 2026-10-21 the per-option verdicts (why each rejected option is
+wrong) sit on the option itself, as its `explanation`, and show under it
+once the answer is checked; the question explanation keeps the lead
+reasoning and the AWS doc link.
 
 **67 exam-style scenarios** (`source: "original"`, tag `scenario`, ids
 `aws-genai-<tier>-d<domain>-<n>`) were written for the full bank in the
