@@ -280,244 +280,236 @@
     ]
   },
   {
-    "id": "aws-genai-hard-bp-4",
+    "id": "aws-genai-hard-d1-7",
     "categoryKey": "rag-knowledge-bases",
     "level": "hard",
-    "difficulty": 3,
-    "prompt": "A company is developing a RAG application on Amazon Bedrock that processes customer support documents. The application retrieves many relevant documents, but users report that the most relevant information often appears lower in the results. The company wants to improve relevance ranking so the most useful information appears first. Which combination of steps will improve relevance with MINIMAL operational overhead? (Select TWO.)",
+    "difficulty": 4,
+    "prompt": "A museum archive's RAG assistant uses Amazon Bedrock Knowledge Bases. Researchers submit multi-intent questions that compare preservation guidance across several media types, and profiling shows a single retrieval call often finds evidence for one part of the question but misses the others. The application already generates the final answer with its own separate model invocation because it must inject a strict JSON response schema and review metadata.\n\nWhich approach improves retrieval coverage for these questions?",
     "options": [
       {
         "key": "A",
-        "text": "Use Amazon SageMaker JumpStart FMs with Amazon Kendra Intelligent Ranking to create custom relevancy scoring algorithms.",
-        "explanation": "Bedrock already provides built-in reranking optimized for FM integration; this approach is more complex and less integrated."
+        "text": "Raise the generation model's temperature so it is more likely to cover all parts of the question.",
+        "explanation": "Generation cannot cover evidence that was never retrieved."
       },
       {
         "key": "B",
-        "text": "Use Knowledge Bases with hybrid search and Amazon OpenSearch Serverless to combine vector embeddings with keyword matching."
+        "text": "Replace the custom generation step with RetrieveAndGenerate and drop the JSON schema requirement.",
+        "explanation": "The scenario needs the custom generation step for the JSON schema and metadata."
       },
       {
         "key": "C",
-        "text": "Configure Amazon OpenSearch Serverless with the Bedrock Knowledge Bases plugin and use OpenSearch Learning to Rank for relevance scoring.",
-        "explanation": "Learning to Rank is an open-source plugin that requires custom scoring and trained, maintained models — more overhead than built-in Bedrock features."
+        "text": "Add a step that decomposes the question into sub-queries, call the knowledge base Retrieve operation for each sub-query, merge and de-duplicate the retrieved contexts, and pass them to the existing generation prompt."
       },
       {
         "key": "D",
-        "text": "Create an Amazon Aurora PostgreSQL database with pgvector and a custom similarity scoring algorithm combining vector distances with metadata.",
-        "explanation": "This requires custom development and managing the vector database — more operational overhead."
-      },
-      {
-        "key": "E",
-        "text": "Use Amazon Bedrock reranker models with Amazon OpenSearch Service to reorder retrieved results based on semantic relevance to the query."
+        "text": "Increase the embedding dimension so a single query vector can represent several intents at once.",
+        "explanation": "Dimensionality does not let one vector target several distinct topics."
       }
     ],
-    "explanation": "Hybrid search combines semantic vector embeddings with keyword matching to improve retrieval relevance with minimal overhead. Bedrock reranker models are purpose-built to score query-document relevance and reorder results so the most relevant information appears first. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
-    "source": "curated",
-    "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
+    "explanation": "Multi-part questions produce one query vector that lands between the sub-topics; decomposing into focused sub-queries and retrieving for each one recovers evidence for every part, and because the application owns generation, the merged contexts feed its existing structured prompt. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-retrieve.html",
+    "source": "original",
+    "sourceRef": "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-retrieve.html",
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.4",
-      "hard"
+      "domain-1",
+      "hard",
+      "scenario"
     ],
-    "correctKeys": [
-      "B",
-      "E"
-    ]
+    "correctKey": "C"
   },
   {
-    "id": "aws-genai-hard-bp-9",
+    "id": "aws-genai-hard-d1-3",
     "categoryKey": "embeddings-retrieval",
     "level": "hard",
-    "difficulty": 3,
-    "prompt": "A financial services company runs a RAG application that answers questions from internal market analysis reports. It uses an Amazon Bedrock embedding model and an Amazon OpenSearch Service cluster as the vector store; a Lambda function performs embedding and search. After a code update, the app returns generic responses such as 'no relevant information found' even for previously answerable questions. CloudWatch Logs shows no errors, X-Ray confirms successful FM invocation, the cluster is healthy, and query latency is normal. What is the cause of this issue?",
+    "difficulty": 4,
+    "prompt": "A field-service RAG assistant uses an Amazon Bedrock knowledge base on Amazon OpenSearch Serverless; the vector index stores each chunk's raw text in a filterable text field. Technicians search with natural-language symptoms and with exact robot model numbers or error codes. Profiling shows semantic retrieval often misses chunks that contain the exact code, and relevant chunks sometimes rank below less useful ones. The team wants better relevance from Retrieve and RetrieveAndGenerate with configuration changes only.\n\nWhich change meets these requirements?",
     "options": [
       {
         "key": "A",
-        "text": "The Amazon Bedrock FM temperature parameter was increased.",
-        "explanation": "Temperature affects generation randomness, not retrieval; this is a retrieval failure."
+        "text": "In the retrieval configuration, override the search type to hybrid so keyword matching on the text field is combined with vector similarity, raise the number of results, and add a reranking configuration that uses an Amazon Bedrock reranker model to reorder the candidates."
       },
       {
         "key": "B",
-        "text": "The Lambda function's IAM role is missing bedrock:InvokeModel permission.",
-        "explanation": "The model is invoked successfully; a missing permission would throw an access error."
+        "text": "Reduce the number of results to one so that only the single best chunk is passed to the model.",
+        "explanation": "Makes misses worse by cutting recall to a single chunk."
       },
       {
         "key": "C",
-        "text": "The document embeddings in OpenSearch were deleted during the update and not re-indexed.",
-        "explanation": "Deleted embeddings would surface in logs or failed queries; with no errors and normal latency, documents are still being retrieved."
+        "text": "Ask technicians to describe the error in words instead of typing the code.",
+        "explanation": "A workaround that discards the most precise signal users have."
       },
       {
         "key": "D",
-        "text": "The updated Lambda function uses a different version of the embedding model."
+        "text": "Switch the embedding model to one with more dimensions so exact codes are represented more precisely.",
+        "explanation": "Dimensionality does not make an embedding model match exact tokens, and it forces a full re-embed."
       }
     ],
-    "explanation": "Embedding drift: query embeddings generated by a different model than was used to index documents cause a vector-space mismatch and ineffective retrieval. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/kb-chunking.html",
-    "source": "curated",
-    "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
+    "explanation": "Hybrid search adds lexical matching, which finds exact identifiers that dense vectors represent poorly, and a reranker model rescoring a larger candidate set fixes the ordering problem; both are retrieval configuration settings, with no re-indexing. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html",
+    "source": "original",
+    "sourceRef": "https://docs.aws.amazon.com/bedrock/latest/userguide/rerank.html",
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.5",
-      "hard"
+      "domain-1",
+      "hard",
+      "scenario"
     ],
-    "correctKey": "D"
+    "correctKey": "A"
   },
   {
-    "id": "aws-genai-hard-bp-11",
+    "id": "aws-genai-hard-d3-9",
     "categoryKey": "security-governance",
     "level": "hard",
-    "difficulty": 3,
-    "prompt": "A financial services company wants a mobile app to help users with account inquiries and general account information. It has a large volume of customer-support email exchanges to use as source material, stored in Amazon S3. The data contains personally identifiable information (PII) that must not appear in search results. Which solution will meet these requirements?",
+    "difficulty": 4,
+    "prompt": "A medical device manufacturer's AI governance office already uses AWS Audit Manager for internal control evidence. It is standardizing oversight for several foundation model applications on Amazon Bedrock and Amazon SageMaker AI. The programme must align with responsible AI principles, support both automated and manually collected evidence, and must not present the results as a formal compliance certification.\n\nWhich approach meets these requirements with the LEAST custom governance work?",
     "options": [
       {
         "key": "A",
-        "text": "Use Amazon Comprehend to detect and redact PII from the email data in S3, and integrate Comprehend with Amazon Kendra to enable enterprise search of the processed data."
+        "text": "Run Amazon SageMaker Clarify on every model and file the bias reports as the governance evidence.",
+        "explanation": "Bias metrics are one piece of evidence, not a governance framework."
       },
       {
         "key": "B",
-        "text": "Use Amazon Kendra for enterprise search and integrate with an Amazon Bedrock FM, using a system prompt to identify and remove PII during query processing.",
-        "explanation": "System prompts cannot reliably or consistently remove PII and can be jailbroken — not secure for sensitive financial data."
+        "text": "Write a custom control set from scratch in a spreadsheet and ask each team to self-attest quarterly.",
+        "explanation": "The most custom work and no automated evidence."
       },
       {
         "key": "C",
-        "text": "Use Amazon Comprehend to detect and redact PII, and integrate with Amazon DocumentDB for database queries.",
-        "explanation": "DocumentDB requires custom search development and lacks NLP for natural-language interactions; it is not enterprise search."
+        "text": "Create an AWS Audit Manager assessment from the prebuilt AWS generative AI best practices framework, collect automated evidence where supported, and attach manual evidence for procedural controls."
       },
       {
         "key": "D",
-        "text": "Use Amazon Textract to extract text, Amazon Macie to scan for PII in S3, and integrate Textract and S3 with Amazon Kendra.",
-        "explanation": "Macie is for data discovery/security posture, not PII redaction for GenAI; Textract targets scanned documents, not raw email text."
+        "text": "Enable AWS Config conformance packs for HIPAA and treat a passing score as generative AI certification.",
+        "explanation": "Config rules check resource configuration, not generative AI practices, and are not a certification either."
       }
     ],
-    "explanation": "Comprehend detects and redacts PII from text, and Kendra provides managed enterprise search over the processed data for conversational integration. Read more: https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html",
-    "source": "curated",
-    "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
+    "explanation": "Audit Manager ships a prebuilt generative AI best practices framework whose controls map to responsible AI principles; an assessment from it collects automated evidence from supported services and accepts manual evidence uploads, and Audit Manager assessments are explicitly not certifications. Read more: https://docs.aws.amazon.com/audit-manager/latest/userguide/aws-generative-ai-best-practices.html",
+    "source": "original",
+    "sourceRef": "https://docs.aws.amazon.com/audit-manager/latest/userguide/aws-generative-ai-best-practices.html",
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 3.3",
-      "hard"
+      "domain-3",
+      "hard",
+      "scenario"
     ],
-    "correctKey": "A"
+    "correctKey": "C"
   },
   {
-    "id": "aws-genai-hard-bp-12",
+    "id": "aws-genai-hard-d5-10",
     "categoryKey": "fm-selection",
     "level": "hard",
-    "difficulty": 3,
-    "prompt": "A company wants an application that analyzes videos and photos from public fashion shows to understand style elements and trends, stores the extracted information, and provides a dashboard summarizing trends. Which solution will meet these requirements with the LEAST operational overhead?",
+    "difficulty": 4,
+    "prompt": "An insurance claims assistant invokes Amazon Bedrock from a Lambda function. After the team added a model from a different provider and later an imported custom model, some requests fail with a validation error saying required fields are missing, and other requests succeed but ignore several generation settings such as the maximum output length. The team must keep using the InvokeModel API and keep the client request contract unchanged.\n\nWhich change should the team make?",
     "options": [
       {
         "key": "A",
-        "text": "Use AWS Step Functions to process videos and photos with Amazon Bedrock multimodal FMs, store results in S3, and use an Amazon QuickSight dashboard to visualize trends."
+        "text": "Add a model-aware serialization layer in the Lambda function that sets the content type to application/json and converts the internal request into the documented native request body and parameter names for each model ID."
       },
       {
         "key": "B",
-        "text": "Use Amazon EventBridge to trigger Lambda functions that use Amazon QuickSight Q to analyze the videos and photos, store results in S3, and deploy a QuickSight dashboard with ML-powered trend analysis.",
-        "explanation": "QuickSight Q answers questions about data already in a dashboard; it cannot analyze videos or photos."
+        "text": "Purchase Provisioned Throughput for the new models so that validation is relaxed for dedicated capacity.",
+        "explanation": "Capacity has no effect on request validation."
       },
       {
         "key": "C",
-        "text": "Use an Anthropic Claude model in Bedrock to analyze text descriptions, use Stable Diffusion for image analysis, store results in OpenSearch Service, and create a Managed Grafana dashboard.",
-        "explanation": "This manages an OpenSearch cluster and multiple FMs with custom visualizations, and analyzes text descriptions rather than the visual content directly."
+        "text": "Send the same JSON body to every model and set the inference parameters as HTTP headers instead.",
+        "explanation": "Bedrock reads inference parameters from the body, not headers."
       },
       {
         "key": "D",
-        "text": "Use Amazon Rekognition Custom Labels to train a custom model, store results in DynamoDB, and create an Amazon Managed Grafana dashboard with custom plugins.",
-        "explanation": "This requires custom model training/maintenance and custom Grafana plugin development — more overhead."
+        "text": "Increase the Lambda function's memory and timeout so the model has enough resources to accept the request.",
+        "explanation": "The errors are schema mismatches, not resource limits."
       }
     ],
-    "explanation": "Bedrock multimodal FMs (e.g., Amazon Nova Pro, Claude) analyze visual content directly without custom model development; Step Functions orchestrates and QuickSight builds dashboards serverlessly. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards.html",
-    "source": "curated",
-    "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
+    "explanation": "InvokeModel request and response bodies are model-specific: each provider defines its own field names and parameter names, so a body that works for one model is missing required fields for another and silently ignores unknown settings. A translation layer per model ID fixes both symptoms while the client contract stays stable. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html",
+    "source": "original",
+    "sourceRef": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html",
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.2",
-      "hard"
+      "domain-5",
+      "hard",
+      "scenario"
     ],
     "correctKey": "A"
   },
   {
-    "id": "aws-genai-hard-bp-16",
+    "id": "aws-genai-hard-d2-10",
     "categoryKey": "deployment-devtools",
     "level": "hard",
-    "difficulty": 3,
-    "prompt": "A cross-functional team is developing a generative AI application on AWS. The team needs to optimize developer productivity, enforce consistent integration patterns, automate performance tuning, and accelerate AI testing across multiple business units using Amazon Q Developer while maintaining application quality. Which combination of steps will meet these requirements? (Select TWO.)",
+    "difficulty": 4,
+    "prompt": "A financial institution's platform team is building a centralized GenAI gateway that internal applications must use to reach Amazon Bedrock. The gateway must enforce request validation and throttling, keep an audit trail of model access, and be released through an automated pipeline that includes security checks. If a release raises errors or latency, it must roll back automatically.\n\nWhich solution meets these requirements with the LEAST operational overhead?",
     "options": [
       {
         "key": "A",
-        "text": "Use Amazon Q Developer to retrospectively analyze and document common integration patterns across business units' code bases.",
-        "explanation": "Reactive retrospective analysis fails to use real-time assistance for generation, refactoring, and testing."
+        "text": "Deploy the gateway on an Auto Scaling group of EC2 instances behind an Application Load Balancer and update the AMI by hand after each code review.",
+        "explanation": "No automated rollback and the most to operate."
       },
       {
         "key": "B",
-        "text": "Integrate Amazon Q Developer automated unit and integration test generation into the team's CI/CD pipelines."
+        "text": "Deploy the gateway as Amazon API Gateway with usage plans and request validation in front of a Lambda function that invokes Bedrock. Use AWS CodePipeline with CodeBuild for tests and security scans, deploy the function with AWS CodeDeploy canary traffic shifting on a Lambda alias, attach CloudWatch alarms that trigger automatic rollback, and enable AWS CloudTrail and CloudWatch Logs for auditing."
       },
       {
         "key": "C",
-        "text": "Incorporate Amazon Q Developer to resolve coding issues during merge requests, reserving most refactoring and optimization for periodic manual review cycles.",
-        "explanation": "Limiting use to merge/review stages and infrequent manual cycles does not optimize the core benefits."
+        "text": "Give every application its own IAM role with direct Bedrock access and rely on CloudTrail as the gateway.",
+        "explanation": "There is no gateway to enforce validation or throttling."
       },
       {
         "key": "D",
-        "text": "Use Amazon Q Developer to analyze code for security best practices, with mandatory manual security-team approval of all code changes before integration.",
-        "explanation": "Mandatory manual approval of all changes creates a bottleneck and does not accelerate workflows or automate tuning/testing."
-      },
-      {
-        "key": "E",
-        "text": "Configure Amazon Q Developer to automatically generate and refactor integration code, provide targeted API usage guidance, and suggest performance optimizations across the modular code base."
+        "text": "Deploy the Lambda function with an all-at-once update and ask the on-call engineer to redeploy the previous version if errors rise.",
+        "explanation": "Rollback is manual and every user hits the bad version."
       }
     ],
-    "explanation": "Embedding automated test generation into CI/CD continuously validates components, sustaining velocity and quality with early defect detection. This delivers real-time code generation, refactoring, API recommendations, and performance optimization, increasing productivity and reducing integration errors. Read more: https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html",
-    "source": "curated",
-    "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
+    "explanation": "API Gateway provides validation, throttling via usage plans and access logs; CodePipeline with CodeBuild runs tests and scans; CodeDeploy shifts a small share of traffic to the new Lambda version and rolls back automatically when an alarm fires; CloudTrail records the Bedrock API calls. Read more: https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html",
+    "source": "original",
+    "sourceRef": "https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html",
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 2.3",
-      "hard"
+      "domain-2",
+      "hard",
+      "scenario"
     ],
-    "correctKeys": [
-      "B",
-      "E"
-    ]
+    "correctKey": "B"
   },
   {
-    "id": "aws-genai-hard-bp-20",
+    "id": "aws-genai-hard-d5-8",
     "categoryKey": "observability",
     "level": "hard",
-    "difficulty": 3,
-    "prompt": "A company runs a question-answering application that uses an Amazon Bedrock knowledge base ingesting documents from multiple Amazon S3 buckets. The company needs to monitor the data ingestion process to identify and troubleshoot document-processing issues. Which solution will meet these requirements?",
+    "difficulty": 4,
+    "prompt": "A product team has launched an internal chat assistant for support agents on Amazon Bedrock. The team wants a user-centred way to keep improving response quality by collecting a per-response rating and optional written feedback, and later analysing that feedback by model and prompt version. The solution must be serverless and require the LEAST operational overhead.\n\nWhich solution meets these requirements?",
     "options": [
       {
         "key": "A",
-        "text": "Implement Amazon Bedrock model invocation logging to capture metrics about document processing and embedding generation.",
-        "explanation": "Model invocation logging captures inference requests, not knowledge base ingestion processes."
+        "text": "Create an Amazon Bedrock human-based evaluation job after each release and have the support agents act as the work team.",
+        "explanation": "That is a batch, offline rating of a fixed dataset, not continuous in-product feedback on live responses."
       },
       {
         "key": "B",
-        "text": "Enable Amazon CloudWatch Application Signals to automatically detect and alert on knowledge base performance issues.",
-        "explanation": "Application Signals monitors application performance/health and does not integrate with knowledge base ingestion monitoring."
+        "text": "Enable Amazon Bedrock model invocation logging and ask agents to type their rating into the next chat message so it appears in the logs.",
+        "explanation": "It pollutes the conversation, sends the rating to the model, and leaves no structured record."
       },
       {
         "key": "C",
-        "text": "Configure knowledge base logging with Amazon CloudWatch Logs as the destination and use CloudWatch Logs Insights to query for failed document processing."
+        "text": "Add a \"Rate this answer\" control to the web UI that calls an Amazon API Gateway endpoint. Use an AWS Lambda function to validate the request and store the rating, free-text feedback, model ID, and prompt version in an Amazon DynamoDB table for later analysis."
       },
       {
         "key": "D",
-        "text": "Enable AWS CloudTrail to track all API calls related to knowledge base operations and document ingestion.",
-        "explanation": "CloudTrail tracks API calls but not the document-level processing information needed to troubleshoot ingestion."
+        "text": "Run an Amazon EC2 instance with a relational database and a REST service that receives ratings from the UI.",
+        "explanation": "It works but is not serverless and carries patching and scaling overhead."
       }
     ],
-    "explanation": "Knowledge bases support built-in logging to CloudWatch Logs that records per-file ingestion status (ingested, ignored, failed); Logs Insights can query statuses such as RESOURCE_IGNORED, EMBEDDING_FAILED, or INDEXING_FAILED. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html",
-    "source": "curated",
-    "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
+    "explanation": "API Gateway, Lambda and DynamoDB form a fully serverless feedback path, and storing the model ID and prompt version with each rating makes the later per-version analysis a simple query. Read more: https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html",
+    "source": "original",
+    "sourceRef": "https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html",
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 2.4",
-      "hard"
+      "domain-5",
+      "hard",
+      "scenario"
     ],
     "correctKey": "C"
   },
