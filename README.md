@@ -71,6 +71,18 @@ removed). The technical claims held up — including fast-moving 2025 services
 That is a ~3% sample, so it is a strong signal, not a guarantee; everything
 stays `reviewStatus: "draft"`.
 
+On 2026-10-23 all 30 questions in this sample went through a three-pass
+automated item review (solve without the key, guess from the options alone,
+and a rubric review for the classic item-writing flaws). Every key was
+confirmed, but 25 items were rated *major* for test-wiseness: distractors
+nobody would pick and a key noticeably longer than the rest. The options
+were rewritten so that each distractor is a real feature misapplied or a
+near-miss, every option in an item is about the same length, and the "Read
+more" link supports the claim it sits under. On re-review the same judge
+rates 0 items fatal or major, 10 minor and 20 clean, still with every key
+confirmed. The 30 ids are unchanged, so progress carries over; the same
+ids in the full bank still carry the old wording until it is refreshed.
+
 ## Categories & tiers
 
 Categories follow the **source bank's topic taxonomy** (10 groups), which is
@@ -151,8 +163,11 @@ passers rate as closest to the exam.
   `hard-bp-N`. Those 141 restatements were removed from the full bank on
   2026-10-13, so 386 is 386 concepts; what that leaves is a Very hard tier of
   only 37 items.
-- **Weak distractors in some security questions** make a few "very hard"
-  items answerable by elimination.
+- **Weak distractors** made most items answerable by elimination until
+  2026-10-23: an automated item review found no wrong keys but flagged 25 of
+  the 30 for throwaway distractors and keys twice the length of the other
+  options. The options were rewritten that day (same ids, same keys);
+  see Verification above.
 
 ## Use it
 
