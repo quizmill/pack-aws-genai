@@ -111,10 +111,10 @@
     }
   ],
   "upgrade": {
-    "title": "Get the full bank — 386 questions",
+    "title": "Get the full bank — 752 questions",
     "url": "https://quizmill.gumroad.com/l/aws-genai",
     "price": "$3",
-    "blurb": "This app is a 30-question sample. The full bank has all 386 questions across the same ten categories and three tiers, and unlocks in place with a licence key under Packs → Have a licence key?",
+    "blurb": "This app is a 30-question sample. The full bank has 752 questions in twelve categories, including an Exam-level tier of 385 paired scenarios, and unlocks in place with a licence key under Packs → Have a licence key?",
     "packId": "aws-genai-full",
     "unlockUrl": "https://sync.quizmill.dev"
   }
