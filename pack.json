@@ -86,8 +86,7 @@
     "label": "AIP-C01 exam",
     "passPct": 75,
     "scaled": true,
-    "questionCount": 75,
-    "durationMinutes": 180
+    "questionCount": 75
   },
   "games": {},
   "sources": [
