@@ -36,8 +36,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.1",
-      "easy"
+      "task 1.1"
     ],
     "correctKeys": [
       "C",
@@ -77,8 +76,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.2",
-      "easy"
+      "task 1.2"
     ],
     "correctKey": "C"
   },
@@ -115,8 +113,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.3",
-      "easy"
+      "task 1.3"
     ],
     "correctKey": "B"
   },
@@ -153,8 +150,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.4",
-      "easy"
+      "task 1.4"
     ],
     "correctKey": "D"
   },
@@ -191,8 +187,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.5",
-      "easy"
+      "task 1.5"
     ],
     "correctKey": "B"
   },
@@ -229,8 +224,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.6",
-      "easy"
+      "task 1.6"
     ],
     "correctKey": "A"
   },
@@ -271,8 +265,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 2.1",
-      "easy"
+      "task 2.1"
     ],
     "correctKeys": [
       "D",
@@ -313,7 +306,6 @@
     "tags": [
       "aip-c01",
       "domain-1",
-      "hard",
       "scenario"
     ],
     "correctKey": "C"
@@ -352,7 +344,6 @@
     "tags": [
       "aip-c01",
       "domain-1",
-      "hard",
       "scenario"
     ],
     "correctKey": "A"
@@ -391,7 +382,6 @@
     "tags": [
       "aip-c01",
       "domain-3",
-      "hard",
       "scenario"
     ],
     "correctKey": "C"
@@ -430,7 +420,6 @@
     "tags": [
       "aip-c01",
       "domain-5",
-      "hard",
       "scenario"
     ],
     "correctKey": "A"
@@ -469,7 +458,6 @@
     "tags": [
       "aip-c01",
       "domain-2",
-      "hard",
       "scenario"
     ],
     "correctKey": "B"
@@ -508,7 +496,6 @@
     "tags": [
       "aip-c01",
       "domain-5",
-      "hard",
       "scenario"
     ],
     "correctKey": "C"
@@ -550,8 +537,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.1",
-      "hard"
+      "task 1.1"
     ],
     "correctKeys": [
       "C",
@@ -595,8 +581,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.3",
-      "hard"
+      "task 1.3"
     ],
     "correctKeys": [
       "D",
@@ -636,8 +621,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.6",
-      "hard"
+      "task 1.6"
     ],
     "correctKey": "B"
   },
@@ -674,8 +658,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 2.1",
-      "hard"
+      "task 2.1"
     ],
     "correctKey": "A"
   },
@@ -712,8 +695,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 2.4",
-      "hard"
+      "task 2.4"
     ],
     "correctKey": "D"
   },
@@ -750,8 +732,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.1",
-      "veryhard"
+      "task 1.1"
     ],
     "correctKey": "A"
   },
@@ -788,8 +769,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.2",
-      "veryhard"
+      "task 1.2"
     ],
     "correctKey": "D"
   },
@@ -827,7 +807,6 @@
     "tags": [
       "aip-c01",
       "domain-1",
-      "hard",
       "scenario"
     ],
     "correctKey": "C"
@@ -866,7 +845,6 @@
     "tags": [
       "aip-c01",
       "domain-1",
-      "hard",
       "scenario"
     ],
     "correctKey": "B"
@@ -905,7 +883,6 @@
     "tags": [
       "aip-c01",
       "domain-2",
-      "veryhard",
       "scenario"
     ],
     "correctKey": "A"
@@ -944,7 +921,6 @@
     "tags": [
       "aip-c01",
       "domain-2",
-      "hard",
       "scenario"
     ],
     "correctKey": "D"
@@ -983,7 +959,6 @@
     "tags": [
       "aip-c01",
       "domain-2",
-      "veryhard",
       "scenario"
     ],
     "correctKey": "B"
@@ -1022,7 +997,6 @@
     "tags": [
       "aip-c01",
       "domain-3",
-      "veryhard",
       "scenario"
     ],
     "correctKey": "C"
@@ -1061,7 +1035,6 @@
     "tags": [
       "aip-c01",
       "domain-3",
-      "hard",
       "scenario"
     ],
     "correctKey": "C"
@@ -1104,7 +1077,6 @@
     "tags": [
       "aip-c01",
       "domain-4",
-      "veryhard",
       "scenario"
     ],
     "correctKeys": [
@@ -1146,7 +1118,6 @@
     "tags": [
       "aip-c01",
       "domain-5",
-      "hard",
       "scenario"
     ],
     "correctKey": "D"
@@ -1189,7 +1160,6 @@
     "tags": [
       "aip-c01",
       "domain-5",
-      "veryhard",
       "scenario"
     ],
     "correctKeys": [
