@@ -8,8 +8,10 @@ prompt management, deployment, observability, and security: three questions
 per category, spanning the Easy, Hard and Very hard tiers, and including ten
 exam-style scenarios written for the pack.
 
-The **full bank — all 386 questions** in the same ten categories and three
-tiers — ships as a separate pack, `aws-genai-full`. The app's upgrade card
+The **full bank — 752 questions** in twelve categories and four tiers, 385
+of them an **Exam-level** tier of paired scenario questions written against
+the exam guide's 20 tasks — ships as a separate pack, `aws-genai-full`. The
+app's upgrade card
 (on Home, below the practice loop, and in Settings → Packs) links to it, and
 the manifest names it (`upgrade.packId`, with `upgrade.unlockUrl` as the
 service) so a licence key for it unlocks the full bank **in place**: paste
@@ -58,7 +60,8 @@ bank barely covers: testing, validation and troubleshooting, operational
 efficiency, integration patterns, and governance. Each one's `sourceRef` is
 the AWS doc page it is grounded in.
 
-The sample here is 30 of those 386, drawn by id. Three of them
+The sample here is 30 of the full bank's Easy, Hard and Very hard questions,
+drawn by id. Three of them
 (`easy-1-4-20`, `easy-2-1-14`, `veryhard-1-1-v1`) carry corrections made on
 2026-10-22 against current AWS documentation (DynamoDB vector search, the
 `agentcore` CLI, Provisioned Throughput's supported-model list).
@@ -82,32 +85,40 @@ were rewritten so that each distractor is a real feature misapplied or a
 near-miss, every option in an item is about the same length, and the "Read
 more" link supports the claim it sits under. On re-review the same judge
 rates 0 items fatal or major, 10 minor and 20 clean, still with every key
-confirmed. The 30 ids are unchanged, so progress carries over; the same
-ids in the full bank still carry the old wording until it is refreshed.
+confirmed. The 30 ids are unchanged, so progress carries over, and the full
+bank carries the same wording for them since 2026-10-23.
 
 ## Categories & tiers
 
 Categories follow the **source bank's topic taxonomy** (10 groups), which is
 the most faithful mapping — not the official exam domains. Use the **Tier**
 filter (Easy / Hard / Very hard, from the source's three banks) to drill by
-difficulty.
+difficulty. The full bank adds two categories (Cost & Performance
+Optimization; Evaluation, Testing & Troubleshooting) and a fourth tier,
+**Exam-level**, which the sample does not draw from.
 
-| Category | Sample (Easy / Hard / Very hard) | Full bank (Easy / Hard / Very hard) |
+| Category | Sample (Easy / Hard / Very hard) | Full bank (Easy / Hard / Very hard / Exam-level) |
 | --- | --- | --- |
-| Foundation Models: Selection & Inference | 3 (1 / 1 / 1) | 61 (29 / 22 / 10) |
-| RAG, Knowledge Bases & Vector Stores | 3 (1 / 2 / 0) | 57 (33 / 22 / 2) |
-| Agents (Bedrock Agents, AgentCore, Strands) | 3 (1 / 1 / 1) | 53 (32 / 16 / 5) |
-| Data Preparation | 3 (1 / 2 / 0) | 38 (25 / 11 / 2) |
-| Security, Guardrails & Compliance | 3 (0 / 2 / 1) | 37 (0 / 30 / 7) |
-| Prompt Management & Inference Control | 3 (1 / 1 / 1) | 37 (18 / 16 / 3) |
-| Chunking, Embeddings & Retrieval | 3 (1 / 2 / 0) | 35 (22 / 13 / 0) |
-| Model Deployment & Developer Tools | 3 (0 / 2 / 1) | 32 (0 / 28 / 4) |
-| Well-Architected GenAI Lens | 3 (1 / 1 / 1) | 24 (14 / 7 / 3) |
-| Observability & Monitoring | 3 (0 / 2 / 1) | 12 (0 / 11 / 1) |
+| Foundation Models: Selection & Inference | 3 (1 / 1 / 1) | 86 (29 / 19 / 10 / 28) |
+| RAG, Knowledge Bases & Vector Stores | 3 (1 / 2 / 0) | 84 (33 / 19 / 2 / 30) |
+| Agents (Bedrock Agents, AgentCore, Strands) | 3 (1 / 1 / 1) | 82 (32 / 15 / 5 / 30) |
+| Data Preparation | 3 (1 / 2 / 0) | 49 (25 / 10 / 2 / 12) |
+| Security, Guardrails & Compliance | 3 (0 / 2 / 1) | 115 (0 / 27 / 7 / 81) |
+| Prompt Management & Inference Control | 3 (1 / 1 / 1) | 47 (18 / 14 / 3 / 12) |
+| Chunking, Embeddings & Retrieval | 3 (1 / 2 / 0) | 58 (22 / 12 / 0 / 24) |
+| Model Deployment & Developer Tools (full bank: Deployment, Integration & Developer Tools) | 3 (0 / 2 / 1) | 110 (0 / 24 / 4 / 82) |
+| Well-Architected GenAI Lens | 3 (1 / 1 / 1) | 34 (14 / 7 / 3 / 10) |
+| Observability & Monitoring | 3 (0 / 2 / 1) | 29 (0 / 10 / 1 / 18) |
+| Cost & Performance Optimization (full bank only) | — | 28 (0 / 0 / 0 / 28) |
+| Evaluation, Testing & Troubleshooting (full bank only) | — | 30 (0 / 0 / 0 / 30) |
 
 The Very hard tier is small on purpose: after the restatements were removed
 it holds the 15 upstream items that ask something the Hard tier does not,
-plus 22 of the exam-style scenarios.
+plus 22 of the exam-style scenarios. The full bank's Exam-level tier is 385
+questions in pairs: the two share their options word for word but have
+different scenarios and different keys, so only the stem decides; each is
+tagged with the exam guide's task and skill, and the full bank's readiness
+estimate and timed exam are computed from that tier alone.
 
 ### How the sample was chosen
 
@@ -118,8 +129,8 @@ miniature:
   contributes one (seven of the ten; Security, Deployment and Observability
   have no Easy tier upstream), and every category with a Very hard item
   contributes one unless the slot was better spent on a scenario. The sample
-  is 7 Easy, 16 Hard and 7 Very hard; the bank is Easy 173, Hard 176, Very
-  hard 37.
+  is 7 Easy, 16 Hard and 7 Very hard; the bank is Easy 173, Hard 157, Very
+  hard 37, plus the 385 Exam-level questions the sample does not draw from.
 - **Both kinds of question.** 14 are adapted from the community bank and 16
   are the pack's own exam-style scenarios — spread over nine of the ten
   categories and all five official domains — so the sample shows the
@@ -152,8 +163,11 @@ Troubleshooting (11%). The community bank is heavily weighted to the first
 three themes (RAG, FM selection, agents, security) and **under-represents
 standalone cost/performance optimization and testing/troubleshooting**; the
 67 exam-style scenarios were written to narrow exactly that gap (25 of them
-are Domain 4 and 5), but the full bank is still strong drilling material
-rather than a blueprint-balanced mock. For the
+are Domain 4 and 5). The full bank's Exam-level tier goes further: its 385
+questions cover all 20 exam-guide tasks and its category weights are the
+blueprint's domain weights, so its readiness estimate is the closest thing
+in the pack to a blueprint-balanced mock; the inherited tiers remain
+drilling material. For the
 authoritative, blueprint-accurate questions, do the **AWS Skill Builder
 Official Practice Question Set + Official Pretest** — the resource real
 passers rate as closest to the exam.
@@ -163,7 +177,9 @@ passers rate as closest to the exam.
 - **The upstream bank restated itself across tiers** — its Very hard items
   repeated its Hard items almost verbatim, and `easy-off-N` condensed
   `hard-bp-N`. Those 141 restatements were removed from the full bank on
-  2026-10-13, so 386 is 386 concepts; what that leaves is a Very hard tier of
+  2026-10-13, so each of the full bank's 367 Easy, Hard and Very hard
+  questions is its own concept (the 385 Exam-level questions are pairs by
+  design, one decision per pair); what that leaves is a Very hard tier of
   only 37 items.
 - **Weak distractors** made most items answerable by elimination until
   2026-10-23: an automated item review found no wrong keys but flagged 25 of
