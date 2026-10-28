@@ -23,6 +23,8 @@ works: insert the full bank's bundle file at `/packs` and tap **Make
 active**. Engines older than the release that added the key entry ignore
 the two fields and show the card alone.
 
+The timed exam (75 questions, 180 minutes) is in the full bank only.
+
 > **Unofficial.** Not affiliated with or endorsed by AWS. This is community
 > study material — treat every question as `draft` and cross-check against
 > AWS docs and the official practice set.

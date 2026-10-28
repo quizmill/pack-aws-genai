@@ -30,14 +30,13 @@
         "explanation": "Longer timeouts hold threads and connections open during an outage and turn a slow dependency into a cascading failure; the pillar recommends bounded timeouts with backoff."
       }
     ],
-    "explanation": "Circuit breakers stop a failing dependency from cascading by halting calls until it recovers, and cross-Region failover keeps the workload available during a regional impairment. Bounded timeouts, retries with backoff and jitter complete the pattern; longer timeouts, logging or version pinning do not change what happens when a call fails. Read more: https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lens.html",
+    "explanation": "Circuit breakers stop a failing dependency from cascading by halting calls until it recovers, and cross-Region failover keeps the workload available during a regional impairment. Bounded timeouts, retries with backoff and jitter complete the pattern; longer timeouts, logging or version pinning do not change what happens when a call fails. Read more: https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/reliability.html",
     "source": "curated",
     "sourceRef": "https://github.com/JeremyEngineer/aws-aip-c01-practice-exam",
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.1",
-      "easy"
+      "task 1.1"
     ],
     "correctKeys": [
       "C",
@@ -77,8 +76,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.2",
-      "easy"
+      "task 1.2"
     ],
     "correctKey": "C"
   },
@@ -115,8 +113,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.3",
-      "easy"
+      "task 1.3"
     ],
     "correctKey": "B"
   },
@@ -153,8 +150,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.4",
-      "easy"
+      "task 1.4"
     ],
     "correctKey": "D"
   },
@@ -191,8 +187,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.5",
-      "easy"
+      "task 1.5"
     ],
     "correctKey": "B"
   },
@@ -229,8 +224,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.6",
-      "easy"
+      "task 1.6"
     ],
     "correctKey": "A"
   },
@@ -271,8 +265,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 2.1",
-      "easy"
+      "task 2.1"
     ],
     "correctKeys": [
       "D",
@@ -313,7 +306,6 @@
     "tags": [
       "aip-c01",
       "domain-1",
-      "hard",
       "scenario"
     ],
     "correctKey": "C"
@@ -345,14 +337,13 @@
         "explanation": "Dimensionality does not make an embedding model match exact tokens, and swapping models forces a full re-embed rather than a configuration change."
       }
     ],
-    "explanation": "Hybrid search adds lexical matching, which finds exact identifiers that dense vectors represent poorly, and a reranker model rescoring a larger candidate set fixes the ordering problem; both are retrieval configuration settings, with no re-indexing. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html",
+    "explanation": "Hybrid search adds lexical matching, which finds exact identifiers that dense vectors represent poorly, and a reranker model rescoring a larger candidate set fixes the ordering problem; both are retrieval configuration settings, with no re-indexing. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/rerank.html",
     "source": "original",
     "sourceRef": "https://docs.aws.amazon.com/bedrock/latest/userguide/rerank.html",
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
       "domain-1",
-      "hard",
       "scenario"
     ],
     "correctKey": "A"
@@ -391,7 +382,6 @@
     "tags": [
       "aip-c01",
       "domain-3",
-      "hard",
       "scenario"
     ],
     "correctKey": "C"
@@ -430,7 +420,6 @@
     "tags": [
       "aip-c01",
       "domain-5",
-      "hard",
       "scenario"
     ],
     "correctKey": "A"
@@ -469,7 +458,6 @@
     "tags": [
       "aip-c01",
       "domain-2",
-      "hard",
       "scenario"
     ],
     "correctKey": "B"
@@ -508,7 +496,6 @@
     "tags": [
       "aip-c01",
       "domain-5",
-      "hard",
       "scenario"
     ],
     "correctKey": "C"
@@ -550,8 +537,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.1",
-      "hard"
+      "task 1.1"
     ],
     "correctKeys": [
       "C",
@@ -595,8 +581,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.3",
-      "hard"
+      "task 1.3"
     ],
     "correctKeys": [
       "D",
@@ -636,8 +621,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.6",
-      "hard"
+      "task 1.6"
     ],
     "correctKey": "B"
   },
@@ -674,8 +658,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 2.1",
-      "hard"
+      "task 2.1"
     ],
     "correctKey": "A"
   },
@@ -712,8 +695,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 2.4",
-      "hard"
+      "task 2.4"
     ],
     "correctKey": "D"
   },
@@ -750,8 +732,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.1",
-      "veryhard"
+      "task 1.1"
     ],
     "correctKey": "A"
   },
@@ -788,8 +769,7 @@
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
-      "task 1.2",
-      "veryhard"
+      "task 1.2"
     ],
     "correctKey": "D"
   },
@@ -827,7 +807,6 @@
     "tags": [
       "aip-c01",
       "domain-1",
-      "hard",
       "scenario"
     ],
     "correctKey": "C"
@@ -866,7 +845,6 @@
     "tags": [
       "aip-c01",
       "domain-1",
-      "hard",
       "scenario"
     ],
     "correctKey": "B"
@@ -905,7 +883,6 @@
     "tags": [
       "aip-c01",
       "domain-2",
-      "veryhard",
       "scenario"
     ],
     "correctKey": "A"
@@ -944,7 +921,6 @@
     "tags": [
       "aip-c01",
       "domain-2",
-      "hard",
       "scenario"
     ],
     "correctKey": "D"
@@ -983,7 +959,6 @@
     "tags": [
       "aip-c01",
       "domain-2",
-      "veryhard",
       "scenario"
     ],
     "correctKey": "B"
@@ -1022,7 +997,6 @@
     "tags": [
       "aip-c01",
       "domain-3",
-      "veryhard",
       "scenario"
     ],
     "correctKey": "C"
@@ -1061,7 +1035,6 @@
     "tags": [
       "aip-c01",
       "domain-3",
-      "hard",
       "scenario"
     ],
     "correctKey": "C"
@@ -1104,7 +1077,6 @@
     "tags": [
       "aip-c01",
       "domain-4",
-      "veryhard",
       "scenario"
     ],
     "correctKeys": [
@@ -1139,14 +1111,13 @@
         "text": "Run a retrieve-only RAG evaluation job in Amazon Bedrock against a JSONL dataset of prompts and reference responses, and use AWS X-Ray traces for Retrieve latency"
       }
     ],
-    "explanation": "Bedrock RAG evaluation jobs can be run in retrieve-only mode, where an evaluator model scores the retrieved contexts against the reference responses using metrics such as context relevance and context coverage, isolating the retriever from the generator. With the AWS SDK client instrumented for X-Ray, each Retrieve call becomes a subsegment, so per-request latency is visible without custom timers. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-kb.html and https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-python-awssdkclients.html",
+    "explanation": "Bedrock RAG evaluation jobs can be run in retrieve-only mode, where an evaluator model scores the retrieved contexts against the reference responses using metrics such as context relevance and context coverage, isolating the retriever from the generator. With the AWS SDK client instrumented for X-Ray, each Retrieve call becomes a subsegment, so per-request latency is visible without custom timers. Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-kb.html and https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-python-awssdkclients.html Read more: https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-kb.html",
     "source": "original",
     "sourceRef": "https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-kb.html",
     "reviewStatus": "draft",
     "tags": [
       "aip-c01",
       "domain-5",
-      "hard",
       "scenario"
     ],
     "correctKey": "D"
@@ -1189,7 +1160,6 @@
     "tags": [
       "aip-c01",
       "domain-5",
-      "veryhard",
       "scenario"
     ],
     "correctKeys": [
